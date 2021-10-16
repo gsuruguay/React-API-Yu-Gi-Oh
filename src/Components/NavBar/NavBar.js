@@ -3,17 +3,16 @@ import { Form, FormControl, Button, Image, Navbar, Nav } from 'react-bootstrap';
 
 export default function NavBar() {
     return (
-
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" expand="lg" fixed="top">
             <Navbar.Brand href="/"><Image width="120" src="https://i.postimg.cc/sXkRxzYy/yugioh-letras.png" alt="Logo Yu-Gi-Oh" /></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
+            <Navbar.Collapse id="navbarScroll" className="justify-content-end pr-5">
                 <Nav
                     className="mr-auto my-2 my-lg-0"
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link className="ml-1" href="/about">About</Nav.Link>
+                    <Nav.Link className="mr-3" href="/about">About</Nav.Link>
                 </Nav>
                 <Form className="d-flex">
                     <FormControl
