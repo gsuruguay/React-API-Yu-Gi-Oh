@@ -1,32 +1,29 @@
-//import { Form, FormControl, Button, Image, Navbar, Nav, Container } from 'react-bootstrap';
-import cards from "../../cardinfo.json";
+import { Row, Col, Card } from 'react-bootstrap';
+//import cards from "../../cardinfo.json";
 //import "./Section.css";
 
-export default function Section() {
+export default function Section(props) {
 
-    //Funcion para obtener una lista random de 20 cards
-    const getListCards = () => {
-        let i = 0;
-        let cardList = [];
-        while (i < 20) {
-            cardList.push(cards.data[Math.floor(Math.random() * cards.data.length)])
-            i++;
-        }
-        return cardList;
-    }
-
-    const limitedListCards = getListCards();
-
-    console.log(limitedListCards);
-
+    console.log(props.limitedListCards);
 
     return (
         <section className="mt-5 pt-5">
-            <p>THIS IS SECTION DE CARDSaaaaaaaaaaaaaaa</p>
-            <p>THIS IS SECTION DE CARDS</p>
-            <p>THIS IS SECTION DE CARDS</p>
-            <p>THIS IS SECTION DE CARDS</p>
-            <p>THIS IS SECTION DE CARDS</p>
+            <Row xs={1} md={5} className="g-4">
+                {props.limitedListCards?.map((data, index) => (
+                    <Col key={index}>
+                        <Card>
+                            <Card.Img variant="top" src={data?.card_images[0].image_url} />
+                            <Card.Body>
+                                <Card.Title>{data?.race}</Card.Title>
+                                {/* <Card.Text>
+                                    This is a longer card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.
+                                </Card.Text> */}
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
         </section>
     );
 }
