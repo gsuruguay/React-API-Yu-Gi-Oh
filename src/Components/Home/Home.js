@@ -9,25 +9,29 @@ import SideBar from "../SideBar/SideBar";
 
 export default function Home() {
 
+    //Esta lista no debe cambiar... se filtra en base a esta
     const [cardListAPI, setCardListAPI] = useState([]);
+    //Esta es la que si cambio... la que modifico con los select
+    const [filterList, setFilterList] = useState([]);
+
 
     useEffect(() => {
-        setCardListAPI(cards.data)
+        getListCards();
     }, [])
 
+    //Funcion filtra 20 cards de toda la lista cards
     const getListCards = () => {
         let i = 0;
         let cardList = [];
         while (i < 20) {
-            cardList.push(cardListAPI[Math.floor(Math.random() * cardListAPI.length)])
+            cardList = [...cardList, cards.data[Math.floor(Math.random() * cards.data.length)]];
             i++;
         }
-        return cardList;
+        setCardListAPI(cardList);
+        setFilterList(cardList);
     }
 
-    /* const limitedListCards = getListCards(); */
 
-    /* console.log(limitedListCards) */
 
 
     return (
@@ -35,7 +39,8 @@ export default function Home() {
             <NavBar />
             <Row>
                 <Col md={10}>
-                    <Section limitedListCards={getListCards()} />
+                    <Section limitedListCards={cardListAPI} 
+                    filterList={filterList}/>
                 </Col>
                 <Col>
                     <SideBar />
