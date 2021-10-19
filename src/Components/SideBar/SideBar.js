@@ -1,106 +1,107 @@
+//import { useState } from 'react';
 import { Form } from 'react-bootstrap';
 //import "./SideBar.css";
 
-export default function SideBar() {
+export default function SideBar(props) {
 
     return (
         <aside className="mt-5 pt-5">
             <h3>Search filters</h3>
-            <div className="mb-4">
-                <h5>Sort by name</h5>
-                <Form>
+            <Form onChange={props.handleChange}>
+                <div className="mb-4">
+                    <h5>Sort by name</h5>
                     <Form.Check
                         inline
                         label="ASC"
                         name="order"
                         type="radio"
-                        id="order-asc"
+                        id="name-asc"
                     />
                     <Form.Check
                         inline
                         label="DESC"
                         name="order"
                         type="radio"
-                        id="order-desc"
+                        id="name-desc"
                     />
-                </Form>
-            </div>
-            <div className="mb-4">
-                <h5>Sort by race</h5>
-                <Form>
+
+                </div>
+                <div className="mb-4">
+                    <h5>Sort by race</h5>
+
                     <Form.Check
                         inline
                         label="ASC"
                         name="order"
                         type="radio"
-                        id="order-asc"
+                        id="race-asc"
                     />
                     <Form.Check
                         inline
                         label="DESC"
                         name="order"
                         type="radio"
-                        id="order-desc"
+                        id="race-desc"
                     />
-                </Form>
-            </div>
-            <div className="mb-4">
-                <h5>Sort by level</h5>
-                <Form>
+
+                </div>
+                <div className="mb-4">
+                    <h5>Sort by level</h5>
+
                     <Form.Check
                         inline
                         label="ASC"
                         name="order"
                         type="radio"
-                        id="order-asc"
+                        id="level-asc"
                     />
                     <Form.Check
                         inline
                         label="DESC"
                         name="order"
                         type="radio"
-                        id="order-desc"
+                        id="level-desc"
                     />
-                </Form>
-            </div>
-            <div className="mb-4">
-                <h5>Sort by ATK</h5>
-                <Form>
+
+                </div>
+                <div className="mb-4">
+                    <h5>Sort by ATK</h5>
+
                     <Form.Check
                         inline
                         label="ASC"
                         name="order"
                         type="radio"
-                        id="order-asc"
+                        id="atk-asc"
                     />
                     <Form.Check
                         inline
                         label="DESC"
                         name="order"
                         type="radio"
-                        id="order-desc"
+                        id="atk-desc"
                     />
-                </Form>
-            </div>
-            <div className="mb-4">
-                <h5>Sort by DEF</h5>
-                <Form>
+
+                </div>
+                <div className="mb-4">
+                    <h5>Sort by DEF</h5>
+
                     <Form.Check
                         inline
                         label="ASC"
                         name="order"
                         type="radio"
-                        id="order-asc"
+                        id="def-asc"
                     />
                     <Form.Check
                         inline
                         label="DESC"
                         name="order"
                         type="radio"
-                        id="order-desc"
+                        id="def-desc"
                     />
-                </Form>
-            </div>
+                </div>
+            </Form>
         </aside>
     );
 }

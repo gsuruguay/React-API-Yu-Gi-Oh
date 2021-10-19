@@ -1,5 +1,4 @@
 import { Row, Col, Card } from 'react-bootstrap';
-//import cards from "../../cardinfo.json";
 //import "./Section.css";
 
 export default function Section(props) {
@@ -9,7 +8,7 @@ export default function Section(props) {
     return (
         <section className="mt-5 pt-5">
             <Row xs={1} md={5} className="g-4">
-                {props.limitedListCards?.map((data, index) => (
+                {props.filterList?.map((data, index) => (
                     <Col key={index}>
                         <Card>
                             <Card.Img variant="top" src={data?.card_images[0].image_url} />
