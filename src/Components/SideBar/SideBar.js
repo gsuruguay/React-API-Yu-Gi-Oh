@@ -1,5 +1,5 @@
 //import { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 //import "./SideBar.css";
 
 export default function SideBar(props) {
@@ -7,7 +7,12 @@ export default function SideBar(props) {
     return (
         <aside className="mt-5 pt-5">
             <h3>Search filters</h3>
-            <Form onChange={props.handleChange}>
+            {props.showMoreCards ?
+                <Button variant="outline-secondary" onClick={props.showMore}>Show fewer cards</Button>
+                :
+                <Button variant="outline-secondary" onClick={props.showMore}>Show more cards</Button>
+            }
+            <Form className="mt-3" onChange={props.handleChange}>
                 <div className="mb-4">
                     <h5>Sort by name</h5>
                     <Form.Check
@@ -102,6 +107,8 @@ export default function SideBar(props) {
                     />
                 </div>
             </Form>
+            
+
         </aside>
     );
 }

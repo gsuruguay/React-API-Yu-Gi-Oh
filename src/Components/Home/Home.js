@@ -15,22 +15,14 @@ export default function Home() {
     //Esta es la que se envia al otro componente y la que seteo con el sort
     const [filterList, setFilterList] = useState([]);
 
+    //Estado para usar en boton show more Cards del SideBar
+    const [showMoreCards, setShowMoreCards] = useState(false);
 
-    useEffect(() => {
-        getListCards();
-    }, [])
-
-
-    //Luego de que el componente es montado
-    /* useEffect(() => {
-        setFilterList(cardListAPI)
-    }, [cardListAPI]) */
-
-    //Funcion filtra 20 cards de toda la lista cards
-    const getListCards = () => {
+    //Funcion filtra 20 0 40 cards de toda la lista cards.json
+    const getListCards = (numLimit = 20) => {
         let i = 0;
         let cardList = [];
-        while (i < 20) {
+        while (i < numLimit) {
             cardList = [...cardList, cards.data[Math.floor(Math.random() * cards.data.length)]];
             i++;
         }
@@ -40,10 +32,7 @@ export default function Home() {
 
     const handleChange = e => {
         let nuevaLista = [];
-        /* e.target.id === "name-asc" && console.log(cardListAPI.sort(sortAsc));
-        e.target.id === "name-desc" && console.log(cardListAPI.sort(sortDesc)) */
-        /* e.target.id === "name-asc" && setFilterList(filterList.sort(sortAsc))
-        e.target.id === "name-desc" && setFilterList(filterList.sort(sortDesc)) */
+
         if (e.target.id === "name-asc") {
             nuevaLista = cardListAPI.sort(sortAsc)
             setFilterList([...nuevaLista]);
@@ -84,16 +73,6 @@ export default function Home() {
             nuevaLista = cardListAPI.sort((a, b) => { return b.def - a.def })
             setFilterList([...nuevaLista]);
         }
-
-        /* e.target.id === "race-asc" && console.log(e.target.id);
-        e.target.id === "race-desc" && console.log(e.target.id);
-        e.target.id === "level-asc" && console.log(e.target.id);
-        e.target.id === "level-desc" && console.log(e.target.id);
-        e.target.id === "atk-asc" && console.log(e.target.id);
-        e.target.id === "atk-desc" && console.log(e.target.id);
-        e.target.id === "def-asc" && console.log(e.target.id);
-        e.target.id === "def-desc" && console.log(e.target.id); */
-        //console.log(filterList.sort(sortAsc));
     }
 
     const sortAsc = (x, y) => {
@@ -117,16 +96,34 @@ export default function Home() {
         return 0;
     }
 
+    const showMore = ()=>{
+        setShowMoreCards(!showMoreCards)
+    }
+
+    useEffect(() => {
+        getListCards();
+    }, []) 
+
+    useEffect(() => {
+        if(showMoreCards){
+            getListCards(40);
+            console.log(showMoreCards);
+        } else {
+            getListCards();
+        }
+    }, [showMoreCards])
+
     return (
         <Container fluid>
             <NavBar />
             <Row>
                 <Col md={10}>
+                
                     <Section limitedListCards={cardListAPI}
                         filterList={filterList} />
                 </Col>
                 <Col>
-                    <SideBar handleChange={handleChange} />
+                    <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards}/>
                 </Col>
             </Row>
         </Container>
