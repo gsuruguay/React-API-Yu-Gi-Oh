@@ -9,10 +9,10 @@ import SideBar from "../SideBar/SideBar";
 
 export default function Home() {
 
-    //Se filtra en base a esta que es copia de la otra
+    //Se filtra en base a esta lista
     const [cardListAPI, setCardListAPI] = useState([]);
 
-    //Esta es la que se envia al otro componente y la que seteo con el sort
+    //Lista que se envia a los componentes
     const [filterList, setFilterList] = useState([]);
 
     //Estado para usar en boton show more Cards del SideBar
@@ -30,6 +30,7 @@ export default function Home() {
         setFilterList(cardList);
     }
 
+    //Función para ordenar las cards de forma ASC o DESC
     const handleChange = e => {
         let nuevaLista = [];
 
@@ -50,49 +51,49 @@ export default function Home() {
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "level-asc") {
-            nuevaLista = cardListAPI.sort((a, b) => { return a.level - b.level })
+            nuevaLista = cardListAPI.sort((a, b) => a.level - b.level)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "level-desc") {
-            nuevaLista = cardListAPI.sort((a, b) => { return b.level - a.level })
+            nuevaLista = cardListAPI.sort((a, b) => b.level - a.level)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "atk-asc") {
-            nuevaLista = cardListAPI.sort((a, b) => { return a.atk - b.atk })
+            nuevaLista = cardListAPI.sort((a, b) => a.atk - b.atk)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "atk-desc") {
-            nuevaLista = cardListAPI.sort((a, b) => { return b.atk - a.atk })
+            nuevaLista = cardListAPI.sort((a, b) => b.atk - a.atk)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "def-asc") {
-            nuevaLista = cardListAPI.sort((a, b) => { return a.def - b.def })
+            nuevaLista = cardListAPI.sort((a, b) => a.def - b.def)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "def-desc") {
-            nuevaLista = cardListAPI.sort((a, b) => { return b.def - a.def })
+            nuevaLista = cardListAPI.sort((a, b) => b.def - a.def)
             setFilterList([...nuevaLista]);
         }
     }
 
     const sortAsc = (x, y) => {
-        if (x.name < y.name) { return -1; }
-        if (x.name > y.name) { return 1; }
+        if (x.name < y.name) return -1;
+        if (x.name > y.name) return 1;
         return 0;
     }
     const sortDesc = (x, y) => {
-        if (x.name > y.name) { return -1; }
-        if (x.name < y.name) { return 1; }
+        if (x.name > y.name) return -1;
+        if (x.name < y.name) return 1;
         return 0;
     }
     const sortRaceAsc = (x, y) => {
-        if (x.race < y.race) { return -1; }
-        if (x.race > y.race) { return 1; }
+        if (x.race < y.race) return -1;
+        if (x.race > y.race) return 1;
         return 0;
     }
     const sortRaceDesc = (x, y) => {
-        if (x.race > y.race) { return -1; }
-        if (x.race < y.race) { return 1; }
+        if (x.race > y.race) return -1;
+        if (x.race < y.race) return 1;
         return 0;
     }
 
@@ -105,20 +106,14 @@ export default function Home() {
     }, []) 
 
     useEffect(() => {
-        if(showMoreCards){
-            getListCards(40);
-            console.log(showMoreCards);
-        } else {
-            getListCards();
-        }
+        showMoreCards ? getListCards(40) : getListCards();
     }, [showMoreCards])
 
     return (
         <Container fluid>
             <NavBar />
             <Row>
-                <Col md={10}>
-                
+                <Col md={10}>                
                     <Section limitedListCards={cardListAPI}
                         filterList={filterList} />
                 </Col>
