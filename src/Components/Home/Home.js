@@ -19,62 +19,75 @@ export default function Home() {
     //Estado para usar en boton show more Cards del SideBar
     const [showMoreCards, setShowMoreCards] = useState(false);
 
-    //Buscado de NavBar
+    //Buscador de NavBar
     const [searchValue, setSearch] = useState("");
 
-    const getListCards = (numLimit = 20, datos = cards.data) => {
+    //Funcion que crea la lista random de cards
+    const getListCards = (numLimit = 40, datos = cards.data) => {
         let i = 0;
         let cardList = [];
         while (i < numLimit) {
             cardList = [...cardList, datos[Math.floor(Math.random() * datos.length)]];
             i++;
         }
-        setCardListAPI(cardList);
-        setFilterList(cardList);
+        setCardListAPI(cardList);//este va a tener 40 para usarlo con el boton showMore
+        setFilterList(cardList.slice(0, 20));
     }
+
+    //Con esta que es similar a la otra hacia que las cartas sean random en cada click del btn Show more Cards
+    /*     const getListCards = (numLimit = 20, datos = cards.data) => {
+            let i = 0;
+            let cardList = [];
+            while (i < numLimit) {
+                cardList = [...cardList, datos[Math.floor(Math.random() * datos.length)]];
+                i++;
+            }
+            setCardListAPI(cardList);
+            setFilterList(cardList);
+        } */
 
     //Función para ordenar las cards de forma ASC o DESC
     const handleChange = e => {
         let nuevaLista = [];
 
         if (e.target.id === "name-asc") {
-            nuevaLista = cardListAPI.sort(sortAsc)
+            nuevaLista = filterList.sort(sortAsc)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "name-desc") {
-            nuevaLista = cardListAPI.sort(sortDesc)
+            nuevaLista = filterList.sort(sortDesc)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "race-asc") {
-            nuevaLista = cardListAPI.sort(sortRaceAsc)
+            nuevaLista = filterList.sort(sortRaceAsc)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "race-desc") {
-            nuevaLista = cardListAPI.sort(sortRaceDesc)
+            nuevaLista = filterList.sort(sortRaceDesc)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "level-asc") {
-            nuevaLista = cardListAPI.sort((a, b) => a.level - b.level)
+            nuevaLista = filterList.sort((a, b) => a.level - b.level)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "level-desc") {
-            nuevaLista = cardListAPI.sort((a, b) => b.level - a.level)
+            nuevaLista = filterList.sort((a, b) => b.level - a.level)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "atk-asc") {
-            nuevaLista = cardListAPI.sort((a, b) => a.atk - b.atk)
+            nuevaLista = filterList.sort((a, b) => a.atk - b.atk)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "atk-desc") {
-            nuevaLista = cardListAPI.sort((a, b) => b.atk - a.atk)
+            nuevaLista = filterList.sort((a, b) => b.atk - a.atk)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "def-asc") {
-            nuevaLista = cardListAPI.sort((a, b) => a.def - b.def)
+            nuevaLista = filterList.sort((a, b) => a.def - b.def)
             setFilterList([...nuevaLista]);
         }
         if (e.target.id === "def-desc") {
-            nuevaLista = cardListAPI.sort((a, b) => b.def - a.def)
+            nuevaLista = filterList.sort((a, b) => b.def - a.def)
             setFilterList([...nuevaLista]);
         }
     }
@@ -100,9 +113,7 @@ export default function Home() {
         return 0;
     }
 
-    const showMore = () => {
-        setShowMoreCards(!showMoreCards)
-    }
+
 
     //Funcion del buscador NO FUNCIONO
     //const searchByName = async (termino) => {
@@ -128,12 +139,26 @@ export default function Home() {
 
     //Filtra por name o por race desde json en cards
     const getFilterCards = (terminoBusqueda) => {
-        let resultadosBusqueda = cards.data.filter((elemento) => 
+        let resultadosBusqueda = cards.data.filter((elemento) =>
             elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
-                || elemento.race.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+            || elemento.race.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+        );
+        setCardListAPI(resultadosBusqueda.slice(0,40));
+        setFilterList(resultadosBusqueda.slice(0, 20));
+    }
+
+/*     const getFilterCards = (terminoBusqueda) => {
+        let resultadosBusqueda = cards.data.filter((elemento) =>
+            elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+            || elemento.race.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
         );
         //setFilterList(resultadosBusqueda);
         getListCards(20, resultadosBusqueda);
+    } */
+
+    //Seteo del estado segun click boton en SideBar
+    const showMore = () => {
+        setShowMoreCards(!showMoreCards)
     }
 
     //Component Did mount
@@ -143,8 +168,14 @@ export default function Home() {
 
     //Component Did Update
     useEffect(() => {
+        showMoreCards ? setFilterList(cardListAPI) : setFilterList(cardListAPI.slice(0, 20));
+    }, [showMoreCards, cardListAPI])
+
+
+    //Esto hace que las cartas cambien random nuevamente en cada click
+    /* useEffect(() => {
         showMoreCards ? getListCards(40) : getListCards();
-    }, [showMoreCards])
+    }, [showMoreCards]) */
 
     return (
         <Container fluid>
