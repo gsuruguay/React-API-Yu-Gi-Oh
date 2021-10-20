@@ -19,6 +19,9 @@ export default function Home() {
     //Estado para usar en boton show more Cards del SideBar
     const [showMoreCards, setShowMoreCards] = useState(false);
 
+    //Estado para usar en btn Change Cards del SideBar
+    const [isChangeCards, setIsChangeCards] = useState(false);
+
     //Buscador de NavBar
     const [searchValue, setSearch] = useState("");
 
@@ -156,6 +159,11 @@ export default function Home() {
         getListCards(20, resultadosBusqueda);
     } */
 
+    //Evitar la tecla enter
+    const submitHandler = (e)=> {
+        e.preventDefault();
+    }
+
     //Seteo del estado segun click boton en SideBar
     const showMore = () => {
         setShowMoreCards(!showMoreCards)
@@ -171,6 +179,15 @@ export default function Home() {
         showMoreCards ? setFilterList(cardListAPI) : setFilterList(cardListAPI.slice(0, 20));
     }, [showMoreCards, cardListAPI])
 
+    //Funcion para btn Change Cards de SideBar
+    const btnChangeCards = () =>{
+        setIsChangeCards(!isChangeCards)
+    }
+    useEffect(() => {
+        isChangeCards ? getListCards(40) : getListCards();
+        setIsChangeCards(false);
+    }, [isChangeCards])
+
 
     //Esto hace que las cartas cambien random nuevamente en cada click
     /* useEffect(() => {
@@ -185,7 +202,7 @@ export default function Home() {
                     <Section limitedListCards={cardListAPI} filterList={filterList} />
                 </Col>
                 <Col>
-                    <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} />
+                    <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} submitHandler={submitHandler}/>
                 </Col>
             </Row>
         </Container>
