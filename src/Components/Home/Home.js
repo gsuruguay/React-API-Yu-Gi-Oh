@@ -10,17 +10,17 @@ import SideBar from "../SideBar/SideBar";
 
 export default function Home() {
 
-    //Se filtra en base a esta lista
+    //Lista que contiene 40 cards filtradas maximo.
     const [cardListAPI, setCardListAPI] = useState([]);
 
-    //Lista que se envia a los componentes
+    //Lista que se envia a los componentes con 20 cards maximo.
     const [filterList, setFilterList] = useState([]);
 
-    //Estado para usar en boton show more Cards del SideBar
+    //Estado para usar en btn show more Cards del SideBar
     const [showMoreCards, setShowMoreCards] = useState(false);
 
     //Estado para usar en btn Change Cards del SideBar
-    const [isChangeCards, setIsChangeCards] = useState(false);
+    const [changeCards, setChangeCards] = useState(false);
 
     //Buscador de NavBar
     const [searchValue, setSearch] = useState("");
@@ -33,21 +33,9 @@ export default function Home() {
             cardList = [...cardList, datos[Math.floor(Math.random() * datos.length)]];
             i++;
         }
-        setCardListAPI(cardList);//este va a tener 40 para usarlo con el boton showMore
+        setCardListAPI(cardList);
         setFilterList(cardList.slice(0, 20));
     }
-
-    //Con esta que es similar a la otra hacia que las cartas sean random en cada click del btn Show more Cards
-    /*     const getListCards = (numLimit = 20, datos = cards.data) => {
-            let i = 0;
-            let cardList = [];
-            while (i < numLimit) {
-                cardList = [...cardList, datos[Math.floor(Math.random() * datos.length)]];
-                i++;
-            }
-            setCardListAPI(cardList);
-            setFilterList(cardList);
-        } */
 
     //Función para ordenar las cards de forma ASC o DESC
     const handleChange = e => {
@@ -132,7 +120,6 @@ export default function Home() {
 
     const searchChange = e => {
         setSearch(e.target.value);
-        //filtrar(e.target.value);
     }
 
     //Evento OnClick de Button en Search
@@ -140,7 +127,7 @@ export default function Home() {
         getFilterCards(searchValue);
     }
 
-    //Filtra por name o por race desde json en cards
+    //Busca por name o por race desde json en cards
     const getFilterCards = (terminoBusqueda) => {
         let resultadosBusqueda = cards.data.filter((elemento) =>
             elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
@@ -149,60 +136,41 @@ export default function Home() {
         setCardListAPI(resultadosBusqueda.slice(0,40));
         setFilterList(resultadosBusqueda.slice(0, 20));
     }
-
-/*     const getFilterCards = (terminoBusqueda) => {
-        let resultadosBusqueda = cards.data.filter((elemento) =>
-            elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
-            || elemento.race.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
-        );
-        //setFilterList(resultadosBusqueda);
-        getListCards(20, resultadosBusqueda);
-    } */
-
-    //Evitar la tecla enter
-    const submitHandler = (e)=> {
-        e.preventDefault();
-    }
-
-    //Seteo del estado segun click boton en SideBar
-    const showMore = () => {
-        setShowMoreCards(!showMoreCards)
-    }
-
+    
     //Component Did mount
     useEffect(() => {
         getListCards();
     }, [])
 
-    //Component Did Update
+    //Cambia el estado segun click boton moreCards en SideBar
+    const showMore = () => {
+        setShowMoreCards(!showMoreCards)
+    }
+
+    //Hace el seguimiento al estado showMoreCards
     useEffect(() => {
         showMoreCards ? setFilterList(cardListAPI) : setFilterList(cardListAPI.slice(0, 20));
     }, [showMoreCards, cardListAPI])
 
     //Funcion para btn Change Cards de SideBar
     const btnChangeCards = () =>{
-        setIsChangeCards(!isChangeCards)
+        setChangeCards(!changeCards)
     }
     useEffect(() => {
-        isChangeCards ? getListCards(40) : getListCards();
-        setIsChangeCards(false);
-    }, [isChangeCards])
+        changeCards ? getListCards(40) : getListCards();
+        setChangeCards(false);
+    }, [changeCards])
 
-
-    //Esto hace que las cartas cambien random nuevamente en cada click
-    /* useEffect(() => {
-        showMoreCards ? getListCards(40) : getListCards();
-    }, [showMoreCards]) */
 
     return (
         <Container fluid>
             <NavBar searchChange={searchChange} searchValue={searchValue} btnSearch={btnSearch} />
             <Row>
                 <Col md={10}>
-                    <Section limitedListCards={cardListAPI} filterList={filterList} />
+                    <Section filterList={filterList} />
                 </Col>
                 <Col>
-                    <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} submitHandler={submitHandler}/>
+                    <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} />
                 </Col>
             </Row>
         </Container>

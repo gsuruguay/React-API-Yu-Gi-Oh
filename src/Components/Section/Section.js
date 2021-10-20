@@ -3,8 +3,6 @@ import { Row, Col, Card } from 'react-bootstrap';
 
 export default function Section(props) {
 
-    //console.log(props.limitedListCards);
-
     return (
         <section className="mt-5 pt-5">
             <Row xs={1} md={5} className="g-4">
