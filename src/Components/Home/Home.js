@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
+//import axios from "axios";
 import NavBar from '../NavBar/NavBar';
 import Section from '../Section/Section';
 import cards from "../../cardinfo.json";
@@ -18,12 +19,14 @@ export default function Home() {
     //Estado para usar en boton show more Cards del SideBar
     const [showMoreCards, setShowMoreCards] = useState(false);
 
-    //Funcion filtra 20 0 40 cards de toda la lista cards.json
-    const getListCards = (numLimit = 20) => {
+    //Buscado de NavBar
+    const [searchValue, setSearch] = useState("");
+
+    const getListCards = (numLimit = 20, datos = cards.data) => {
         let i = 0;
         let cardList = [];
         while (i < numLimit) {
-            cardList = [...cardList, cards.data[Math.floor(Math.random() * cards.data.length)]];
+            cardList = [...cardList, datos[Math.floor(Math.random() * datos.length)]];
             i++;
         }
         setCardListAPI(cardList);
@@ -97,28 +100,61 @@ export default function Home() {
         return 0;
     }
 
-    const showMore = ()=>{
+    const showMore = () => {
         setShowMoreCards(!showMoreCards)
     }
 
+    //Funcion del buscador NO FUNCIONO
+    //const searchByName = async (termino) => {
+    /* const response = await axios.get("");
+    const data = response.data; */
+    //axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${termino}`)
+    /* .then(res => {
+      const resulCards = res.data;
+      this.setState({ resulCards });
+      getListCards(20, resulCards);
+    }) */
+    //}
+
+    const searchChange = e => {
+        setSearch(e.target.value);
+        //filtrar(e.target.value);
+    }
+
+    //Evento OnClick de Button en Search
+    const btnSearch = () => {
+        getFilterCards(searchValue);
+    }
+
+    //Filtra por name o por race desde json en cards
+    const getFilterCards = (terminoBusqueda) => {
+        let resultadosBusqueda = cards.data.filter((elemento) => 
+            elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+                || elemento.race.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+        );
+        //setFilterList(resultadosBusqueda);
+        getListCards(20, resultadosBusqueda);
+    }
+
+    //Component Did mount
     useEffect(() => {
         getListCards();
-    }, []) 
+    }, [])
 
+    //Component Did Update
     useEffect(() => {
         showMoreCards ? getListCards(40) : getListCards();
     }, [showMoreCards])
 
     return (
         <Container fluid>
-            <NavBar />
+            <NavBar searchChange={searchChange} searchValue={searchValue} btnSearch={btnSearch} />
             <Row>
-                <Col md={10}>                
-                    <Section limitedListCards={cardListAPI}
-                        filterList={filterList} />
+                <Col md={10}>
+                    <Section limitedListCards={cardListAPI} filterList={filterList} />
                 </Col>
                 <Col>
-                    <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards}/>
+                    <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} />
                 </Col>
             </Row>
         </Container>

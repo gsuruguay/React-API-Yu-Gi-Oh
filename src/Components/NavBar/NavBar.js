@@ -1,7 +1,7 @@
 import { Form, FormControl, Button, Image, Navbar, Nav, Container } from 'react-bootstrap';
 import "./NavBar.css";
 
-export default function NavBar() {
+export default function NavBar(props) {
     return (
         <Navbar bg="dark" expand="lg" variant="dark" fixed="top">
             <Container fluid>
@@ -14,8 +14,11 @@ export default function NavBar() {
                         placeholder="Search"
                         className="mr-2"
                         aria-label="Search"
+                        onChange={props.searchChange}
+                        value={props.searchValue}
                     />
-                    <Button variant="outline-success">Search</Button>
+                    <Button variant="outline-success" onClick={props.btnSearch}>Search</Button>
+                    {/* <Button variant="outline-success" onClick={props.searchByName(props.searchValue)}>Search</Button> */}
                 </Form>
                 <Nav
                     className="mr-auto my-2 my-lg-0"
