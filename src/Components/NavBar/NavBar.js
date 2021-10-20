@@ -8,7 +8,7 @@ export default function NavBar(props) {
             <Navbar.Brand href="/"><Image width="120" src="https://i.postimg.cc/sXkRxzYy/yugioh-letras.png" alt="Logo Yu-Gi-Oh" /></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll" className="justify-content-around">
-                <Form className="d-flex searchNavBar">
+                <Form className="d-flex searchNavBar" onSubmit={ e => e.preventDefault() } >
                     <FormControl
                         type="search"
                         placeholder="Search"
@@ -18,7 +18,6 @@ export default function NavBar(props) {
                         value={props.searchValue}
                     />
                     <Button variant="outline-success" onClick={props.btnSearch}>Search</Button>
-                    {/* <Button variant="outline-success" onClick={props.searchByName(props.searchValue)}>Search</Button> */}
                 </Form>
                 <Nav
                     className="mr-auto my-2 my-lg-0"
