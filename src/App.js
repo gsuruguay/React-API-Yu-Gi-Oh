@@ -1,10 +1,12 @@
 import './App.css';
 import About from './Components/About/About';
-
+import Details from './Components/DetailsCards/Details';
+import Footer from './Components/Footer/Footer';
 function App() {
   return (
     <div>
-      <About/>
+      <Details/>
+      
     </div>
   );
 }
