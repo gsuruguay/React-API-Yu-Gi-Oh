@@ -1,0 +1,96 @@
+
+.get_in_touch {
+    max-width: 800px;
+    margin: 50px auto;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.get_in_touch .title {
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 3em;
+    line-height: 48px;
+    padding-bottom: 20px;
+    color: red;
+    background: linear-gradient(to right, red 0%, black 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-form .form-field {
+    position: relative;
+    margin: 32px 0;
+    transition: all .3s;
+}
+
+.contact-form .label {
+    position: absolute;
+    left: 0px;
+    bottom: 11px;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #080808;
+    opacity: 1;
+    cursor: text;
+    text-transform: capitalize;
+    transition: transform 0.2% ease-in-out;
+}
+
+.contact-form .input-text {
+    display: block;
+    width: 100%;
+    height: 36px;
+    border-width: 0 0 2px 0;
+    border-color: #050505;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+.contact-form .input-text::placeholder {
+    color: transparent;
+}
+
+.contact-form .input-text:focus-within {
+    transform: scale(1.05, 1.05);
+}
+
+.contact-form .input-text:focus {
+    outline: none;
+    border-color:rgb(136, 33, 14);
+}
+
+.contact-form .input-text:focus+.label,
+.contact-form .input-text:not(:placeholder-shown)+.label {
+    transform: translateY(-24px);
+    scale: (.10);
+}
+
+.contact-form .submit-btn {
+    display: inline-block;
+    background-image: linear-gradient(125deg, #961919, #070707);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    border: none;
+    width: 300px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: transparent;
+    color: rgb(134, 21, 21);
+}
+
+.errors {
+    color: red;
+    display: block;
+    text-align: end;
+}
