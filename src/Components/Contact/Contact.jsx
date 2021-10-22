@@ -1,11 +1,11 @@
-import React from "react";
+//import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import "./Contact.css";
-import { useState } from "react";
+//import { useState } from "react";
 import Validation from "./Validation";
 import validateInfo from "./ValidateInfo";
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
 
 const Contact = ({ submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = Validation(

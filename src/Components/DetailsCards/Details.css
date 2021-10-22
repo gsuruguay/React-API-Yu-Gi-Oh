@@ -23,16 +23,14 @@ body {
   font-family: 'Oswald', sans-serif;
 }
 
-.card {
+.card-div {
   width: 400px;
 }
 
-.card__content {
- 
-  
+.card__content {  
   padding: 15em 5em;
   transition: transform 3s;
-   background: pink;
+  background: pink;
   transform-style: preserve-3d;
 }
 

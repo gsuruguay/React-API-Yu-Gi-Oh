@@ -6,6 +6,9 @@ import Section from '../Section/Section';
 import cards from "../../cardinfo.json";
 import SideBar from "../SideBar/SideBar";
 
+import { Switch, Route } from "react-router";
+import Details from "../DetailsCards/Details";
+
 //import "./Home.css";
 
 export default function Home() {
