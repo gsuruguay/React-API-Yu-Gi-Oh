@@ -23,7 +23,7 @@
   font-family: 'Oswald', sans-serif;
 }
 
-.card {
+.card-div {
   width: 400px;
 }
 
@@ -36,7 +36,7 @@
   transform-style: preserve-3d;
 }
 
-.card:hover .card__content {
+.card-div:hover .card__content {
   transform: rotateY(.5turn);
 }
 

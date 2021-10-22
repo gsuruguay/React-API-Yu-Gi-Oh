@@ -5,7 +5,7 @@ function Details(props) {
 	return (
         <div className="body row text-center col-12 bg-dark">
 
-		<div class="card text-center">
+		<div class="card-div text-center">
 			<div class="card__content">
 				<div class="card__front">
 					<h3 class="card__title">Yu-Gi-Oh</h3>
