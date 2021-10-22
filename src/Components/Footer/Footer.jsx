@@ -1,9 +1,6 @@
-//import React from 'react';
-//import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import './Footer.css';
-
 
 export default function Footer() {
 	return (
@@ -11,13 +8,12 @@ export default function Footer() {
 			<footer className="bg-black text-center text-danger">
 				<div className="container p-4 pb-0">
 					<hr className="mb-4" />
-					<div className="">						
+					<div className="">
 						<Link className="link-ToContact" to="/contact">
 							CONTACT US
 						</Link>
 					</div>
 					<hr className="mb-4" />
-
 					<Container>
 						<Row>
 							<Col className="logo-footer">
