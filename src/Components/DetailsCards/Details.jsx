@@ -3,7 +3,7 @@ import './Details.css';
 
 function Details(props) {
 	return (
-        <div className="row text-center col-12 bg-dark">
+        <div className="body row text-center col-12 bg-dark">
 
 		<div class="card text-center">
 			<div class="card__content">
