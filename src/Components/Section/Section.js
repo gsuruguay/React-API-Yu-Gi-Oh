@@ -1,8 +1,6 @@
 import { Row, Col, Card } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-
-
-//import "./Section.css";
+import "./Section.css";
 
 export default function Section(props) {
 
@@ -10,7 +8,7 @@ export default function Section(props) {
         <section className="mt-5 pt-5">
             <Row xs={1} md={5} className="g-4">
                 {props.filterList?.map((data, index) => (
-                    <Col key={index}>
+                    <Col className="cont-cards" key={index}>
                         <NavLink to={`/details/${data?.id}`}>
                         <Card>
                             <Card.Img variant="top" src={data?.card_images[0].image_url} />

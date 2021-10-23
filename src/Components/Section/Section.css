@@ -1,0 +1,15 @@
+.cont-cards a{
+    text-decoration: none;
+    text-align: center;
+    color: #4D526F;
+}
+.cont-cards a:hover{
+    color: #6e7235;
+}
+.cont-cards img{
+    transition: all 1s ease;
+}
+.cont-cards img:hover{
+    filter: drop-shadow(10px 8px 6px #F47500);
+    transform: scale(1.1);
+}
