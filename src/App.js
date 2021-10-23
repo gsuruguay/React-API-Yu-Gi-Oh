@@ -13,6 +13,7 @@ function App() {
     <div>
       <Switch>
         <Route exact path="/">
+          <NavFijo />
           <Landing />
         </Route>
         <Route exact path="/home">
@@ -20,7 +21,7 @@ function App() {
           <Footer />
         </Route>
         <Route exact path="/about">
-        <NavFijo />
+          <NavFijo />
           <About />
           <Footer />
         </Route>
@@ -30,7 +31,7 @@ function App() {
           <Footer />
         </Route>
         <Route exact path="/contact">
-        <NavFijo />
+          <NavFijo />
           <Contacts />
         </Route>
       </Switch>

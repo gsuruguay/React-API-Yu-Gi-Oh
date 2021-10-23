@@ -18,51 +18,51 @@ export default function Footer() {
 						<Row>
 							<Col className="logo-footer">
 								Dev: Guillermo Suruguay
-								<Link href="mailto:guillermo.suruguay@gmail.com" target="blank">
+								<a href="mailto:guillermo.suruguay@gmail.com">
 									<img
 										src="https://i.postimg.cc/y6hMkbR5/logo-gmail-2.png"
 										alt="logo gmail"
 										width="40px"
 									/>
-								</Link>
-								<Link href="https://github.com/gsuruguay" target="blank">
+								</a>
+								<a href="https://github.com/gsuruguay" rel="noreferrer" target="_blank">
 									<img
 										src="https://i.postimg.cc/1zHFgP9X/logo-github-2.png"
 										alt="logo github"
 										width="40px"
 									/>
-								</Link>
-								<Link href="https://www.linkedin.com/in/guillermo-suruguay-desarrollador-web/" target="blank">
+								</a>
+								<a href="https://www.linkedin.com/in/guillermo-suruguay-desarrollador-web/" rel="noreferrer" target="_blank">
 									<img
 										src="https://i.postimg.cc/nzMPxc6G/logo-linkedin.png"
 										alt="logo Linkedin"
 										width="35px"
 									/>
-								</Link>
+								</a>
 							</Col>
 							<Col className="logo-footer">
 								Dev: Lourdes Alvarez
-								<Link href="mailto:lourdes.aa088@gmail.com" target="blank">
+								<a href="mailto:lourdes.aa088@gmail.com">
 									<img
 										src="https://i.postimg.cc/y6hMkbR5/logo-gmail-2.png"
 										alt="logo gmail"
 										width="40px"
 									/>
-								</Link>
-								<Link href="https://github.com/LourAlvarez" target="blank">
+								</a>
+								<a href="https://github.com/LourAlvarez" rel="noreferrer" target="_blank">
 									<img
 										src="https://i.postimg.cc/1zHFgP9X/logo-github-2.png"
 										alt="logo github"
 										width="40px"
 									/>
-								</Link>
-								<Link href="https://www.linkedin.com/in/lourdes-alvarez-ba1511223/" target="blank">
+								</a>
+								<a href="https://www.linkedin.com/in/lourdes-alvarez-ba1511223/" rel="noreferrer" target="_blank">
 									<img
 										src="https://i.postimg.cc/nzMPxc6G/logo-linkedin.png"
 										alt="logo Linkedin"
 										width="35px"
 									/>
-								</Link>
+								</a>
 							</Col>
 						</Row>
 					</Container>
