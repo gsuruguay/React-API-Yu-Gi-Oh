@@ -6,7 +6,7 @@ import About from './Components/About/About';
 import Details from './Components/DetailsCards/Details';
 import Footer from './Components/Footer/Footer';
 import Contacts from './Components/Contact/Contact';
-import NavBar from './Components/NavBar/NavBar';
+import NavFijo from './Components/NavFijo/NavFijo';
 
 function App() {
   return (
@@ -20,15 +20,17 @@ function App() {
           <Footer />
         </Route>
         <Route exact path="/about">
+        <NavFijo />
           <About />
           <Footer />
         </Route>
         <Route exact path="/details/:id">
-          <NavBar />
+          <NavFijo />
           <Details />
           <Footer />
         </Route>
         <Route exact path="/contact">
+        <NavFijo />
           <Contacts />
         </Route>
       </Switch>
