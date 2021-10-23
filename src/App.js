@@ -9,7 +9,7 @@ import Contact from './Components/Contact/Contact';
 function App() {
   return (
     <div>
-      <Landing/>
+      <Contact/>
     </div>
   );
 };

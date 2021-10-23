@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import "./Contact.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Footer from "../Footer/Footer";
+import NavBar from "../NavBar/NavBar";
 export  function validation(values) {
   let errors = {};
 
@@ -56,8 +58,13 @@ function onHandleChange(e){
 
   return (
     <>
-      <Form onSubmit={(e)=>onSubmitForm(e)}>
+     <NavBar  bg="black mb-1" />
+
+     <div className="bg-contact col-12">
+
+      <Form className="formcon col-12" onSubmit={(e)=>onSubmitForm(e)}>
         <section class="get_in_touch">
+        
           <h1 class="title"> CONTACT US</h1>
           <div class="container">
             <div class="contact-form row">
@@ -129,8 +136,11 @@ function onHandleChange(e){
         </div>
             </div>
           </div>
+        
         </section>
       </Form>
+      <Footer></Footer>
+      </div>
     </>
   );
 };
