@@ -1,46 +1,56 @@
-
-.get_in_touch {
-    max-width: 800px;
-    margin: 50px auto;
+.bg-contact{
+    min-height: 100vm;   
+    background-image: url(https://m.media-amazon.com/images/M/MV5BMDM0MDA3NzYtMDE1MS00YjZmLWJmNjQtNzgxYzlhMmMyZjQ2XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_FMjpg_UX1000_.jpg);
+}
+.form {
+    max-width: 100%;
+    height: auto;
+    margin:  auto;
     position: relative;
     text-align: center;
     box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.1);
-    padding: 30px;
 }
-
-.get_in_touch .title {
+.formcon{
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    backdrop-filter: blur(3px);
+}
+.form .title {
     text-transform: uppercase;
     text-align: center;
+    text-decoration-color: white;
     letter-spacing: 3px;
     font-size: 3em;
     line-height: 48px;
     padding-bottom: 20px;
+    padding-top: 100px;
     color: red;
     background: linear-gradient(to right, red 0%, black 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin: 3rem 0;
 }
-
 .contact-form .form-field {
     position: relative;
     margin: 32px 0;
     transition: all .3s;
 }
-
 .contact-form .label {
     position: absolute;
-    left: 0px;
-    bottom: 11px;
+    left: 50px;
+    bottom: 100px;
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
-    color: #080808;
+    color: #f8f6f6;
     opacity: 1;
     cursor: text;
     text-transform: capitalize;
     transition: transform 0.2% ease-in-out;
 }
-
 .contact-form .input-text {
     display: block;
     width: 100%;
@@ -50,27 +60,24 @@
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
+    margin: 10px;
+    margin-right: 50px;
 }
-
 .contact-form .input-text::placeholder {
     color: transparent;
 }
-
 .contact-form .input-text:focus-within {
     transform: scale(1.05, 1.05);
 }
-
 .contact-form .input-text:focus {
     outline: none;
     border-color:rgb(136, 33, 14);
 }
-
-.contact-form .input-text:focus+.label,
-.contact-form .input-text:not(:placeholder-shown)+.label {
-    transform: translateY(-24px);
-    scale: (.10);
+.errors {
+    color: red;
+    display: block;
+    text-align: end;
 }
-
 .contact-form .submit-btn {
     display: inline-block;
     background-image: linear-gradient(125deg, #961919, #070707);
@@ -83,14 +90,25 @@
     height: 40px;
     cursor: pointer;
 }
-
 .submit-btn:hover {
-    background-color: transparent;
+    background: rgb(168, 151, 151);
+    /* background-color: transparent; */
     color: rgb(134, 21, 21);
 }
-
-.errors {
-    color: red;
-    display: block;
-    text-align: end;
+.contact-form .cancel-btn {
+    display: inline-block;
+    background-image: linear-gradient(125deg, #757474, #070707);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    border: none;
+    width: 300px;
+    height: 40px;
+    cursor: pointer;
+}
+.cancel-btn:hover {
+    background: rgb(168, 151, 151);
+    /* background-color: transparent; */
+    color: rgb(134, 21, 21);
 }

@@ -16,7 +16,7 @@ export default function Footer() {
 					<hr className="mb-4" />
 					<Container>
 						<Row>
-							<Col className="logo-footer">
+						<Col className="logo-footer">
 								Dev: Guillermo Suruguay
 								<a href="mailto:guillermo.suruguay@gmail.com">
 									<img

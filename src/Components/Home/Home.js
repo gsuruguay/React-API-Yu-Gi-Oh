@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-//import axios from "axios";
 import NavBar from '../NavBar/NavBar';
 import Section from '../Section/Section';
 import cards from "../../cardinfo.json";
 import SideBar from "../SideBar/SideBar";
-
-
-//import "./Home.css";
+import './Home.css';
 
 export default function Home() {
 
@@ -105,9 +102,7 @@ export default function Home() {
         return 0;
     }
 
-
-
-    //Funcion del buscador NO FUNCIONO
+    //Funcion del buscador falta mejorar con axios
     //const searchByName = async (termino) => {
     /* const response = await axios.get("");
     const data = response.data; */
@@ -164,7 +159,7 @@ export default function Home() {
 
 
     return (
-        <Container fluid>
+        <Container fluid className="cont-home">
             <NavBar handleSearch={handleSearch} searchValue={searchValue} btnSearch={btnSearch} />
             <Row>
                 <Col md={10}>
@@ -172,7 +167,7 @@ export default function Home() {
                 </Col>
                 <Col>
                     <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} />
-                </Col>
+                </Col>               
             </Row>
         </Container>
     );

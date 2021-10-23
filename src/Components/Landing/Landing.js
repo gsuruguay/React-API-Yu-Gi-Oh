@@ -11,10 +11,9 @@ export default function Landing() {
                 </Col>
                 <Col className="align-self-center text-center">
                     <Image src="https://i.postimg.cc/sXkRxzYy/yugioh-letras.png" alt="Titulo Yu-Gi-Oh" />
-                    <Link to="/home"><Button variant="dark" size="lg">Go home!</Button></Link>
+                    <Link to="/home"><Button size="lg" className="my-bgb">Go home!</Button></Link>
                 </Col >
             </Row>
         </Container>
     );
 }
-

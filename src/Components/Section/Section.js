@@ -10,7 +10,7 @@ export default function Section(props) {
                 {props.filterList?.map((data, index) => (
                     <Col className="cont-cards" key={index}>
                         <NavLink to={`/details/${data?.id}`}>
-                            <Card>
+                            <Card className="cnt-card">
                                 <Card.Img variant="top" src={data?.card_images[0].image_url} />
                                 <Card.Body>
                                     <Card.Title>{data?.race}</Card.Title>

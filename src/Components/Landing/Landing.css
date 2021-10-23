@@ -1,6 +1,17 @@
 .cont-landing{
-    background-image: url("https://i.postimg.cc/GhjsfW4g/fondo-dorado.jpg");
+    background-image: url("https://pa1.narvii.com/7845/25061e6b5567f55f366bc3fafdc43509746f11f7r5-540-304_00.gif");
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100%;
+}
+.my-bgb{
+    background: #dcb84d !important;
+    color: rgb(70, 3, 3)!important;
+    font-weight: bolder!important;
+}
+.my-bgb:hover{
+    background: #7c6b38 !important;
+    color: rgb(255, 255, 255)!important;
 }

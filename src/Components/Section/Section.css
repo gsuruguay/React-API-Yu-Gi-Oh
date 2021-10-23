@@ -13,3 +13,6 @@
     filter: drop-shadow(10px 8px 6px #F47500);
     transform: scale(1.1);
 }
+.cnt-card{
+    background: #e1da85!important;
+}
