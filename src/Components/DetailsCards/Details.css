@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+/* @import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
 
 :root {
   --level-one: translateZ(3rem);
@@ -102,6 +102,25 @@ body {
   transform: rotateY(.5turn);
   color: var(--clr);
   background: #333;
+}*/
+.cont-detail{
+  background: #1c0300;
+  height: 100vh;
 }
 
+.cont-info-detail div{
+  border: 3px solid #EABE3F;
+  margin-top: 1rem;
+  text-align: left;
+  padding: .3rem 1rem;
+  color: #ECDEC4;
+}
+.cont-image-detail img{
+  width: 370px;
+  /* width: 60%; */
+}
+
+.cont-info-detail b{
+  color: #FF8C0A;
+}
 
