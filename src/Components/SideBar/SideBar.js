@@ -6,7 +6,7 @@ import { Form, Button } from 'react-bootstrap';
 export default function SideBar(props) {
 
     return (
-        <aside className="mt-5 pt-5">
+        <aside className="mt-5 pt-5 cont-sidebar" style={{color: '#e3e198'}}>
             <h3>Search filters</h3>
                 {/* Boton para cambiar las tarjetas mostradas */}
                 <Button variant="outline-danger" onClick={props.btnChangeCards} className="mb-4">Change cards</Button>                
@@ -17,7 +17,7 @@ export default function SideBar(props) {
                 :
                 <Button variant="outline-secondary" onClick={props.showMore}>Show more cards</Button>
             }
-            <Form className="mt-3" onChange={props.handleChange} >
+            <Form className="mt-3" onChange={props.handleChange}  >
                 <div className="mb-4">
                     <h5>Sort by name</h5>
                     <Form.Check

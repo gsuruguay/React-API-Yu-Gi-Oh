@@ -4,8 +4,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 import NavBar from '../NavBar/NavBar';
 import Section from '../Section/Section';
 import cards from "../../cardinfo.json";
-import Footer from "../Footer/Footer";
+//import Footer from "../Footer/Footer";
 import SideBar from "../SideBar/SideBar";
+import './Home.css';
 
 
 //import "./Home.css";
@@ -165,7 +166,7 @@ export default function Home() {
 
 
     return (
-        <Container fluid>
+        <Container fluid className="cont-home">
             <NavBar handleSearch={handleSearch} searchValue={searchValue} btnSearch={btnSearch} />
             <Row>
                 <Col md={10}>
