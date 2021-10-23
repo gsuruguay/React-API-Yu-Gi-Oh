@@ -105,7 +105,8 @@ body {
 }*/
 .cont-detail{
   background: #1c0300;
-  height: 100vh;
+  height: fit-content;
+  padding-bottom: 3rem;
 }
 
 .cont-info-detail div{
