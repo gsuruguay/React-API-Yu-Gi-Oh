@@ -1,111 +1,74 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
+import './Footer.css';
 
 export default function Footer() {
 	return (
-		<div class="container bg-black ">
-			<footer class=" bg-black text-center  text-danger">
-				<div class="container p-4 pb-0">
-					<section class="">
-						<div class="row">
-							<div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-								<h5 class="text-uppercase">Yu-Gi-Oh</h5>
-
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae modi cum ipsam
-									ad, illo possimus laborum ut reiciendis obcaecati. Ducimus, quas. Corrupti, pariatur
-									eaque? Reiciendis assumenda iusto sapiente inventore animi?
-								</p>
-							</div>
-
-							<div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-								<h5 class="text-uppercase">About us</h5>
-
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae modi cum ipsam
-									ad, illo possimus laborum ut reiciendis obcaecati. Ducimus, quas. Corrupti, pariatur
-									eaque? Reiciendis assumenda iusto sapiente inventore animi?
-								</p>
-							</div>
-						</div>
-					</section>
-
-					<hr class="mb-4" />
-
-					<section class="">
-						<p class="d-flex justify-content-center align-items-center">
-							<span class="me-3">CONTACT US</span>
-							<button type="button" class="btn btn-outline-light btn-rounded">
-								Contact us
-							</button>
-							{/*<NavLink class="btn btn-outline-light btn-rounded" exact to="/Contacts">
-								Contact Us
-							</NavLink>*/}
-						</p>
-					</section>
-
-					<hr class="mb-4" />
-
-					<section class="container d-flex justify-content-center py-1">
-						<p class=" dark-grey-text">
-							<a href="mailto:guillermo.suruguay@gmail.com" target="blank">
-								<img
-									src="https://i.postimg.cc/9XKvWZXR/logo-gmail.png"
-									alt=""
-									width="50px"
-									height="auto"
-								/>
-							</a>
-							<a href="https://github.com/gsuruguay" target="blank">
-								<img
-									src="https://i.postimg.cc/zXh43v3d/logo-github.png"
-									alt=""
-									width="50px"
-									height="auto"
-								/>
-							</a>
-							<a href="https://www.linkedin.com/in/guillermo-suruguay-desarrollador-web/" target="blank">
-								<img
-									src="https://i.postimg.cc/nzMPxc6G/logo-linkedin.png"
-									alt=""
-									width="30px"
-									height="auto"
-								/>
-							</a>
-						</p>
-
-						<p class=" dark-grey-text">
-							<a href="mailto:lourdes.aa088@gmail.com" target="blank">
-								<img
-									src="https://i.postimg.cc/9XKvWZXR/logo-gmail.png"
-									alt=""
-									width="50px"
-									height="auto"
-								/>
-							</a>
-							<a href="https://github.com/LourAlvarez" target="blank">
-								<img
-									src="https://i.postimg.cc/zXh43v3d/logo-github.png"
-									alt=""
-									width="50px"
-									height="auto"
-								/>
-							</a>
-							<a href="https://www.linkedin.com/in/lourdes-alvarez-ba1511223/" target="blank">
-								<img
-									src="https://i.postimg.cc/nzMPxc6G/logo-linkedin.png"
-									alt=""
-									width="30px"
-									height="auto"
-								/>
-							</a>
-						</p>
-					</section>
+		<Container fluid className="bg-black">
+			<footer className="bg-black text-center text-danger">
+				<div className="container p-4 pb-0">
+					<hr className="mb-4" />
+					<div className="">
+						<Link className="link-ToContact" to="/contact">
+							CONTACT US
+						</Link>
+					</div>
+					<hr className="mb-4" />
+					<Container>
+						<Row>
+							<Col className="logo-footer">
+								Dev: Guillermo Suruguay
+								<Link href="mailto:guillermo.suruguay@gmail.com" target="blank">
+									<img
+										src="https://i.postimg.cc/y6hMkbR5/logo-gmail-2.png"
+										alt="logo gmail"
+										width="40px"
+									/>
+								</Link>
+								<Link href="https://github.com/gsuruguay" target="blank">
+									<img
+										src="https://i.postimg.cc/1zHFgP9X/logo-github-2.png"
+										alt="logo github"
+										width="40px"
+									/>
+								</Link>
+								<Link href="https://www.linkedin.com/in/guillermo-suruguay-desarrollador-web/" target="blank">
+									<img
+										src="https://i.postimg.cc/nzMPxc6G/logo-linkedin.png"
+										alt="logo Linkedin"
+										width="35px"
+									/>
+								</Link>
+							</Col>
+							<Col className="logo-footer">
+								Dev: Lourdes Alvarez
+								<Link href="mailto:lourdes.aa088@gmail.com" target="blank">
+									<img
+										src="https://i.postimg.cc/y6hMkbR5/logo-gmail-2.png"
+										alt="logo gmail"
+										width="40px"
+									/>
+								</Link>
+								<Link href="https://github.com/LourAlvarez" target="blank">
+									<img
+										src="https://i.postimg.cc/1zHFgP9X/logo-github-2.png"
+										alt="logo github"
+										width="40px"
+									/>
+								</Link>
+								<Link href="https://www.linkedin.com/in/lourdes-alvarez-ba1511223/" target="blank">
+									<img
+										src="https://i.postimg.cc/nzMPxc6G/logo-linkedin.png"
+										alt="logo Linkedin"
+										width="35px"
+									/>
+								</Link>
+							</Col>
+						</Row>
+					</Container>
 				</div>
-
-				<div class="text-center p-3">© Yu-Gi-Oh 2021 React</div>
+				<div className="text-center p-3">©Yu-Gi-Oh 2021 React</div>
 			</footer>
-		</div>
+		</Container>
 	);
 }

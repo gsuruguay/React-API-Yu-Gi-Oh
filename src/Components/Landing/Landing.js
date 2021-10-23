@@ -5,7 +5,7 @@ import "./Landing.css";
 export default function Landing() {
     return (
         <Container fluid className="cont-landing" expand="lg">
-            <Navbar bg="color" variant="dark" fixed="top">
+            <Navbar  bg="dark" variant="dark" fixed="top" >
                 <Container >
                     <Navbar.Brand href="/"><Image width="120" src="https://i.postimg.cc/sXkRxzYy/yugioh-letras.png" alt="Logo Yu-Gi-Oh" /></Navbar.Brand>
                     <Nav className="justify-content-end">
@@ -20,7 +20,7 @@ export default function Landing() {
                 <Col className="align-self-center text-center">
                     <Image src="https://i.postimg.cc/sXkRxzYy/yugioh-letras.png" alt="Titulo Yu-Gi-Oh" />
 
-                    <Button variant="dark" size="lg">Go home!</Button>
+                    <Button class="btn-primary" size="lg">Go home!</Button>
                 </Col >
             </Row>
         </Container>

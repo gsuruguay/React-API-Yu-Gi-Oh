@@ -1,0 +1,17 @@
+.link-ToContact{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+.link-ToContact:hover{
+    color: #f57e8a;
+}
+.logo-footer img{
+    margin: 0 .4rem;
+    transition: all .7s ease;
+}
+.logo-footer img:hover{
+    filter: drop-shadow(0 2px 5px rgba(255, 255, 255, 0.87));
+    transform: scale(1.2);
+}
