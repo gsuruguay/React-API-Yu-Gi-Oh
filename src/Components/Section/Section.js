@@ -1,4 +1,7 @@
 import { Row, Col, Card } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+
+
 //import "./Section.css";
 
 export default function Section(props) {
@@ -8,6 +11,7 @@ export default function Section(props) {
             <Row xs={1} md={5} className="g-4">
                 {props.filterList?.map((data, index) => (
                     <Col key={index}>
+                        <NavLink to={`/details/${data?.id}`}>
                         <Card>
                             <Card.Img variant="top" src={data?.card_images[0].image_url} />
                             <Card.Body>
@@ -18,6 +22,7 @@ export default function Section(props) {
                                 </Card.Text> */}
                             </Card.Body>
                         </Card>
+                        </NavLink>
                     </Col>
                 ))}
             </Row>
