@@ -7,6 +7,7 @@ import cards from "../../cardinfo.json";
 import Footer from "../Footer/Footer";
 import SideBar from "../SideBar/SideBar";
 
+
 //import "./Home.css";
 
 export default function Home() {
@@ -24,7 +25,7 @@ export default function Home() {
     const [changeCards, setChangeCards] = useState(false);
 
     //Buscador de NavBar
-    const [searchValue, setSearch] = useState("");
+    const [searchValue, setSearchValue] = useState("");
 
     //Funcion que crea la lista random de cards
     const getListCards = (numLimit = 40, datos = cards.data) => {
@@ -119,17 +120,17 @@ export default function Home() {
     }) */
     //}
 
-    const searchChange = e => {
-        setSearch(e.target.value);
+    const handleSearch = e => {
+        setSearchValue(e.target.value);
     }
 
     //Evento OnClick de Button en Search
     const btnSearch = () => {
-        getFilterCards(searchValue);
+        getSearchValue(searchValue);
     }
 
     //Busca por name o por race desde json en cards
-    const getFilterCards = (terminoBusqueda) => {
+    const getSearchValue = (terminoBusqueda) => {
         let resultadosBusqueda = cards.data.filter((elemento) =>
             elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
             || elemento.race.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
@@ -165,7 +166,7 @@ export default function Home() {
 
     return (
         <Container fluid>
-            <NavBar searchChange={searchChange} searchValue={searchValue} btnSearch={btnSearch} />
+            <NavBar handleSearch={handleSearch} searchValue={searchValue} btnSearch={btnSearch} />
             <Row>
                 <Col md={10}>
                     <Section filterList={filterList} />

@@ -1,25 +1,50 @@
-import React from 'react';
-import './Details.css';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router';
+//import './Details.css';
 
 function Details(props) {
+	const params = useParams();
+	const url = `https://db.ygoprodeck.com/api/v7/cardinfo.php?id=${params.id}`
+	console.log(params);
+
+	const [wantedCard, setWantedCard] = useState(null);
+
+	useEffect(() => {
+		async function getCardParam (){
+			const resul = await axios.get(url);
+	
+			const resulCards = resul.data;
+			setWantedCard(resulCards);
+			console.log(resulCards.data[0].name);
+		}
+		getCardParam();
+	}, [url])
+
+
+
+
+	/* const params = useParams();
+	const selected = props.filterList.find((element) => element.id === parseInt(params.id));
+
+	console.log(selected);
+ */
+
+
+	/* const history = useHistory();
+	const back = () => {
+		history.push("/");
+	}; */
+
 	return (
-        <div className="body row text-center col-12 bg-dark">
-
-		<div class="card-div text-center">
-			<div class="card__content">
-				<div class="card__front">
-					<h3 class="card__title">Yu-Gi-Oh</h3>
-					<p class="card__subtitle">El rey de los juegos</p>
-				</div>
-
-				<div class="card__back">
-					<p class="card__body">
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque dolorem eligendi sequi assumenda sed. Minus quae veniam nostrum ipsam, voluptas sapiente perferendis, odio placeat reiciendis, hic numquam ex at? Neque?
-					</p>
-				</div>
-			</div>
-		</div>
-        </div>
+		<>
+			<p>
+				{wantedCard && wantedCard?.data[0].name}
+				{wantedCard && wantedCard?.data[0].race}
+				{wantedCard && wantedCard?.data[0].level}
+			</p>
+			HOLA MUNDO
+			</>
 	);
 }
 export default Details;

@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import "./Contact.css";
@@ -40,7 +40,7 @@ const [errors, setErrors] = useState({
 
   function onSubmitForm(e) {
     e.preventDefault();
-    alert("Sus respuestas se ha registrado");
+    
 } 
 
 function onHandleChange(e){

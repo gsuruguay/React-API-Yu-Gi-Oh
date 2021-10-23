@@ -14,7 +14,7 @@ export default function NavBar(props) {
                         placeholder="Search"
                         className="mr-2"
                         aria-label="Search"
-                        onChange={props.searchChange}
+                        onChange={props.handleSearch}
                         value={props.searchValue}
                     />
                     <Button variant="outline-success" onClick={props.btnSearch}>Search</Button>
