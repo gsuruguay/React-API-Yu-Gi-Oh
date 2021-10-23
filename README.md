@@ -1,1 +1,1 @@
-# Proyecto en construccion
+# API Yu-Gi-Oh
