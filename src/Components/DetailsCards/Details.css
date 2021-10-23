@@ -17,3 +17,8 @@
   color: #FF8C0A;
 }
 
+@media only screen and (max-width: 576px){
+  .cont-image-detail img{
+    width: 330px;
+  }
+}

@@ -1,3 +1,9 @@
 .cont-sidebar h3, h5{
     color: #e3e198 !important;
 }
+
+@media only screen and (max-width: 576px){
+    .btn-sidebar{       
+        width: 100% !important;
+    }
+}

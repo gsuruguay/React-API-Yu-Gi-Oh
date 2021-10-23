@@ -108,7 +108,19 @@
     cursor: pointer;
 }
 .cancel-btn:hover {
-    background: rgb(168, 151, 151);
+    background: rgb(206, 219, 130);
     /* background-color: transparent; */
     color: rgb(134, 21, 21);
+}
+
+@media only screen and (max-width: 576px){
+    .contact-form{       
+        width: 100%;
+    } 
+    .contact-form .submit-btn{       
+        width: 337px;
+    }    
+    .contact-form .cancel-btn{       
+        width: 337px;
+    }    
 }

@@ -15,3 +15,12 @@
     background: #7c6b38 !important;
     color: rgb(255, 255, 255)!important;
 }
+
+@media only screen and (max-width: 576px){
+    .cont-landing{       
+        height: 100vh;
+    }
+    .cont-landing img{       
+        width: 280px;
+    }
+}

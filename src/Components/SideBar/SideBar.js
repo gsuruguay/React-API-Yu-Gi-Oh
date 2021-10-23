@@ -5,12 +5,12 @@ export default function SideBar(props) {
         <aside className="mt-5 pt-5 cont-sidebar" style={{ color: '#e3e198' }}>
             <h3>Search filters</h3>
             {/* Boton para cambiar las tarjetas mostradas */}
-            <Button variant="outline-danger" onClick={props.btnChangeCards} className="mb-4">Change cards</Button>
+            <Button variant="outline-danger" onClick={props.btnChangeCards} className="mb-4 btn-sidebar" style={{ width: '100%' }}>Change cards</Button>
             {/* Boton para mostrar 20 o 40 cards */}
             {props.showMoreCards ?
-                <Button variant="outline-secondary" onClick={props.showMore}>Show fewer cards</Button>
+                <Button style={{ width: '100%' }} className="btn-sidebar" variant="outline-secondary" onClick={props.showMore}>Show fewer cards</Button>
                 :
-                <Button variant="outline-secondary" onClick={props.showMore}>Show more cards</Button>
+                <Button style={{ width: '100%' }} className="btn-sidebar" variant="outline-secondary" onClick={props.showMore}>Show more cards</Button>
             }
             <Form className="mt-3" onChange={props.handleChange}  >
                 <div className="mb-4">

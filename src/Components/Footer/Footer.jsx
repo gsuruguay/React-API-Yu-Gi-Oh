@@ -17,14 +17,17 @@ export default function Footer() {
 					<Container>
 						<Row>
 						<Col className="logo-footer">
+							<div>
 								Dev: Guillermo Suruguay
+								</div>
+								<div>
 								<a href="mailto:guillermo.suruguay@gmail.com">
 									<img
 										src="https://i.postimg.cc/y6hMkbR5/logo-gmail-2.png"
 										alt="logo gmail"
 										width="40px"
 									/>
-								</a>
+								</a>					
 								<a href="https://github.com/gsuruguay" rel="noreferrer" target="_blank">
 									<img
 										src="https://i.postimg.cc/1zHFgP9X/logo-github-2.png"
@@ -39,9 +42,11 @@ export default function Footer() {
 										width="35px"
 									/>
 								</a>
+								</div>
 							</Col>
 							<Col className="logo-footer">
-								Dev: Lourdes Alvarez
+								<div>Dev: Lourdes Alvarez</div>
+								<div>								
 								<a href="mailto:lourdes.aa088@gmail.com">
 									<img
 										src="https://i.postimg.cc/y6hMkbR5/logo-gmail-2.png"
@@ -63,6 +68,7 @@ export default function Footer() {
 										width="35px"
 									/>
 								</a>
+								</div>
 							</Col>
 						</Row>
 					</Container>

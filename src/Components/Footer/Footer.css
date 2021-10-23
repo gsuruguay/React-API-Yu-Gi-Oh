@@ -16,3 +16,8 @@
     transform: scale(1.2);
 }
 
+@media only screen and (max-width: 576px){
+    .logo-footer img{
+        width: 25px;
+    }
+  }
