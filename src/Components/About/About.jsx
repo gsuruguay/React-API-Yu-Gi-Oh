@@ -10,7 +10,7 @@ import './About.css';
 function About (){
 return(
      <div  >
-         <NavBar bg="black" />
+         
         <div class="row text-center about">
                 <section class="col-sm-12 col-md-12 mb-4 section-about " id="header">
                     <div className="overlay">
@@ -49,7 +49,6 @@ return(
                 </div>
 
          </div>
-         <Footer></Footer>
     </div>
 );
 

@@ -2,7 +2,7 @@ import { Container, Image, Navbar, Nav } from 'react-bootstrap';
 
 export default function NavFijo() {
     return (
-                <Navbar bg="dark" variant="dark" fixed="top">
+                <Navbar bg="black" variant="dark" fixed="top">
                     <Container >
                         <Navbar.Brand href="/"><Image width="120" src="https://i.postimg.cc/sXkRxzYy/yugioh-letras.png" alt="Logo Yu-Gi-Oh" /></Navbar.Brand>
                         <Nav className="justify-content-end">

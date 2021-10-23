@@ -3,7 +3,7 @@
    
   background-image: url(https://m.media-amazon.com/images/M/MV5BMDM0MDA3NzYtMDE1MS00YjZmLWJmNjQtNzgxYzlhMmMyZjQ2XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_FMjpg_UX1000_.jpg);
 }
-.get_in_touch {
+.form {
     max-width: 100%;
     height: auto;
     margin:  auto;
@@ -19,7 +19,7 @@
     width: 100%;
     backdrop-filter: blur(3px);
 }
-.get_in_touch .title {
+.form .title {
     text-transform: uppercase;
     text-align: center;
     text-decoration-color: white;
@@ -32,6 +32,7 @@
     background: linear-gradient(to right, red 0%, black 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin: 3rem 0;
 }
 
 .contact-form .form-field {

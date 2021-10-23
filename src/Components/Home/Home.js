@@ -174,7 +174,7 @@ export default function Home() {
                 <Col>
                     <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} />
                 </Col>
-                <Footer></Footer>
+               
             </Row>
         </Container>
     );
