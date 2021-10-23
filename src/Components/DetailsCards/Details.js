@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router';
 import { Container, Row, Col, Image } from 'react-bootstrap';
-
 import './Details.css';
 
 export default function Details(props) {
@@ -24,20 +23,10 @@ export default function Details(props) {
 		getCardParam();
 	}, [url])
 
-
-
-
-	/* const params = useParams();
-	const selected = props.filterList.find((element) => element.id === parseInt(params.id));
-
+	/* Funcion filtra sobre json de datos 
+	const selected = cards.find((element) => element.id === parseInt(params.id));
 	console.log(selected);
  */
-
-
-	/* const history = useHistory();
-	const back = () => {
-		history.push("/");
-	}; */
 
 	return (
 		
@@ -45,9 +34,7 @@ export default function Details(props) {
 				<Row className="mt-5 pt-5 ">
 					<Col md={6} className="cont-image-detail text-center">
 						<Image src={wantedCard && wantedCard?.data[0].card_images[0].image_url} alt="Yu-Gi-Oh" />
-
 					</Col>
-
 					<Col className="cont-info-detail" md={4}>
 						<div> <b>
 							Name:</b> {wantedCard && wantedCard?.data[0].name}
@@ -78,11 +65,7 @@ export default function Details(props) {
 						Ebay Price: </b>
 							${wantedCard && wantedCard?.data[0].card_prices[0].ebay_price}
 						</div>
-
-
-
 					</Col>
-
 				</Row>
 			</Container>
 		
