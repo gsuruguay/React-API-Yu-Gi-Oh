@@ -1,6 +1,5 @@
 .bg-contact{
-  min-height: 100vm;
-   
+  min-height: 100vm;   
   background-image: url(https://m.media-amazon.com/images/M/MV5BMDM0MDA3NzYtMDE1MS00YjZmLWJmNjQtNzgxYzlhMmMyZjQ2XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_FMjpg_UX1000_.jpg);
 }
 .form {
@@ -40,7 +39,6 @@
     margin: 32px 0;
     transition: all .3s;
 }
-
 .contact-form .label {
     position: absolute;
     left: 50px;
@@ -54,7 +52,6 @@
     text-transform: capitalize;
     transition: transform 0.2% ease-in-out;
 }
-
 .contact-form .input-text {
     display: block;
     width: 100%;
@@ -67,22 +64,16 @@
     margin: 10px;
     margin-right: 50px;
 }
-
 .contact-form .input-text::placeholder {
     color: transparent;
 }
-
 .contact-form .input-text:focus-within {
     transform: scale(1.05, 1.05);
 }
-
 .contact-form .input-text:focus {
     outline: none;
     border-color:rgb(136, 33, 14);
 }
-
-
-
 .contact-form .submit-btn {
     display: inline-block;
     background-image: linear-gradient(125deg, #961919, #070707);
@@ -95,12 +86,10 @@
     height: 40px;
     cursor: pointer;
 }
-
 .submit-btn:hover {
     background-color: transparent;
     color: rgb(134, 21, 21);
 }
-
 .errors {
     color: red;
     display: block;

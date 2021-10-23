@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
 .about {
-    background:  #1c0300;
-    
+    background:  #1c0300;    
 }
 .section-about{
     position: relative;
     height: 50vh;
-   background-image: url(https://wallpapercave.com/wp/KBatRds.jpg);
+    background-image: url(https://wallpapercave.com/wp/KBatRds.jpg);
 }
 .overlay {
     position: absolute;
