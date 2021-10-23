@@ -1,6 +1,6 @@
 .bg-contact{
-  min-height: 100vm;   
-  background-image: url(https://m.media-amazon.com/images/M/MV5BMDM0MDA3NzYtMDE1MS00YjZmLWJmNjQtNzgxYzlhMmMyZjQ2XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_FMjpg_UX1000_.jpg);
+    min-height: 100vm;   
+    background-image: url(https://m.media-amazon.com/images/M/MV5BMDM0MDA3NzYtMDE1MS00YjZmLWJmNjQtNzgxYzlhMmMyZjQ2XkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_FMjpg_UX1000_.jpg);
 }
 .form {
     max-width: 100%;
@@ -33,7 +33,6 @@
     -webkit-text-fill-color: transparent;
     margin: 3rem 0;
 }
-
 .contact-form .form-field {
     position: relative;
     margin: 32px 0;
@@ -74,6 +73,11 @@
     outline: none;
     border-color:rgb(136, 33, 14);
 }
+.errors {
+    color: red;
+    display: block;
+    text-align: end;
+}
 .contact-form .submit-btn {
     display: inline-block;
     background-image: linear-gradient(125deg, #961919, #070707);
@@ -87,11 +91,24 @@
     cursor: pointer;
 }
 .submit-btn:hover {
-    background-color: transparent;
+    background: rgb(168, 151, 151);
+    /* background-color: transparent; */
     color: rgb(134, 21, 21);
 }
-.errors {
-    color: red;
-    display: block;
-    text-align: end;
+.contact-form .cancel-btn {
+    display: inline-block;
+    background-image: linear-gradient(125deg, #757474, #070707);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    border: none;
+    width: 300px;
+    height: 40px;
+    cursor: pointer;
+}
+.cancel-btn:hover {
+    background: rgb(168, 151, 151);
+    /* background-color: transparent; */
+    color: rgb(134, 21, 21);
 }

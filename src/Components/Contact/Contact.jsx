@@ -9,6 +9,9 @@ export function validation(values) {
   if (!values.name) {
     errors.name = 'Name is required';
   }
+  if (values.name.length < 3) {
+    errors.name = 'The name must contain a minimum of 3 characters';
+  }
   if (!values.email) {
     errors.email = 'Email is required';
   } else if (!/\S+@\S+\.\S+/.test(values.email)) {
@@ -88,16 +91,22 @@ function Contact() {
                   <div id="errors" class="errors"> {errors.email && <p>{errors.email}</p>} </div>
                 </div>
                 <div class="form-field col-lg-12">
-                  <input
+                <label for="message" class="label">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    class="input-text"                    
+                    name="message"
+                    value={state.message} as="textarea" placeholder="Leave a comment here" onChange={(e) => onHandleChange(e)}
+                  ></textarea>
+                  {/* <input
                     id="message"
                     class="input-text"
                     type="text"
                     name="message"
                     value={state.message} as="textarea" placeholder="Leave a comment here" onChange={(e) => onHandleChange(e)}
-                  />
-                  <label for="message" class="label">
-                    Message
-                  </label>
+                  /> */}                  
                   <div id="errors" class="errors"> {errors.message && <p>{errors.message}</p>} </div>
                 </div>
                 <div class="form-field col-lg-6 align-content-center">
@@ -111,8 +120,8 @@ function Contact() {
                 </div>
                 <div class="form-field col-lg-6">
                   <input
-                    class="submit-btn"
-                    type="submit"
+                    class="cancel-btn"
+                    type="reset"
                     value="Cancel"
                     name=""
                   ></input>
