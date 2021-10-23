@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import "./Contact.css";
 import { useState } from "react";
+import Swal from 'sweetalert2'
 
 export function validation(values) {
   let errors = {};
@@ -25,6 +26,11 @@ export function validation(values) {
 
   return errors;
 }
+
+
+
+
+
 function Contact() {
   const [state, setState] = useState({
     name: '',
@@ -53,6 +59,30 @@ function Contact() {
       })
     )
   }
+
+  //Mensaje de alerta del mensaje
+const envioDeMsj = ()=>{
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'The message has been sent successfully',
+    showConfirmButton: false,
+    timer: 1500
+  })
+  setState({
+    name: '',
+    email: '',
+    message: '',
+  });
+}
+
+const btnCancel = ()=>{
+  setState({
+    name: '',
+    email: '',
+    message: '',
+  });
+}
 
   return (
     <>
@@ -116,6 +146,7 @@ function Contact() {
                     value="Send"
                     name=""
                     disabled={errors.name || errors.email || errors.message ? true : false}
+                    onClick={envioDeMsj}
                   ></input>
                 </div>
                 <div class="form-field col-lg-6">
@@ -124,6 +155,7 @@ function Contact() {
                     type="reset"
                     value="Cancel"
                     name=""
+                    onClick={btnCancel}
                   ></input>
                 </div>
               </div>
