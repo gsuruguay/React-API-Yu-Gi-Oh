@@ -2,7 +2,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import "./Contact.css";
 import { useState } from "react";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { useHistory } from "react-router";
 
 export function validation(values) {
   let errors = {};
@@ -81,12 +82,9 @@ function Contact() {
     });
   }
 
+  const history = useHistory();
   const btnCancel = () => {
-    setState({
-      name: '',
-      email: '',
-      message: '',
-    });
+    history.push("/home")
   }
 
   return (
@@ -166,8 +164,6 @@ function Contact() {
                     ></input>
                   </div>
                 </div>
-
-
               </div>
             </div>
           </section>
