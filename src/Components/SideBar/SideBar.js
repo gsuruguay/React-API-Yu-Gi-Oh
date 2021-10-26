@@ -13,6 +13,15 @@ export default function SideBar(props) {
                 <Button style={{ width: '100%' }} className="btn-sidebar" variant="outline-secondary" onClick={props.showMore}>Show more cards</Button>
             }
             <Form className="mt-3" onChange={props.handleChange}  >
+                <h5>Filter by RACE</h5>
+                <div className="mb-4">
+                    <Form.Select aria-label="Default select example">
+                        <option>Select...</option>
+                        {props.raceList.map(race =>
+                            <option value={race} >{race}</option>
+                        )}
+                    </Form.Select>
+                </div>
                 <div className="mb-4">
                     <h5>Sort by name</h5>
                     <Form.Check

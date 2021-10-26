@@ -35,9 +35,17 @@ export default function Home() {
         setFilterList(cardList.slice(0, 20));
     }
 
-    //Función para ordenar las cards de forma ASC o DESC
+    const raceList = ["Aqua","Beast","Creator-God","Cyberse","Dinosaur","Divine-Beast","Dragon","Fairy","Fiend","Fish","Insect","Machine","Plant","Psychic","Pyro","Reptile","Rock","Sea Serpent","Spellcaster","Thunder","Warrior","Winged","Normal","Field","Equip","Continuous","Quick-Play","Ritual","Counter"]
+
+    //Función para ordenar o filtrar las cards
     const handleChange = e => {
+        console.log("id", e.target.id);
+        console.log("value", e.target.value);
         let nuevaLista = [];
+
+        if(raceList.includes(e.target.value)){
+            getSearchByRace(e.target.value)
+        }
 
         if (e.target.id === "name-asc") {
             nuevaLista = filterList.sort(sortAsc)
@@ -133,6 +141,19 @@ export default function Home() {
         setFilterList(resultadosBusqueda.slice(0, 20));
     }
     
+    //Filtro por race
+    const getSearchByRace = (terminoBusqueda) => {
+        let resultadosBusqueda = cards.data.filter((elemento) =>
+            elemento.race.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+        );
+        //Muestra las mismas cartas siempre
+        /* setCardListAPI(resultadosBusqueda.slice(0,40));
+        setFilterList(resultadosBusqueda.slice(0, 20)); */
+
+        //Hace un random de los resultados
+        getListCards(50, resultadosBusqueda);
+    }
+    
     //Component Did mount
     useEffect(() => {
         getListCards();
@@ -166,7 +187,7 @@ export default function Home() {
                     <Section filterList={filterList} />
                 </Col>
                 <Col>
-                    <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} />
+                    <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} raceList={raceList}/>
                 </Col>               
             </Row>
         </Container>
