@@ -56,10 +56,10 @@ export default function Details(props) {
 					<div>
 						{wantedCard && wantedCard?.data[0].desc}
 					</div>
-					<div><b>
+					{/* <div><b>
 						Amazon Price: </b>
 						${wantedCard && wantedCard?.data[0].card_prices[0].amazon_price}
-					</div>
+					</div> */}
 					<div><b>
 						Ebay Price: </b>
 						${wantedCard && wantedCard?.data[0].card_prices[0].ebay_price}

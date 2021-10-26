@@ -23,6 +23,16 @@ export default function Home() {
     //Buscador de NavBar
     const [searchValue, setSearchValue] = useState("");
 
+    //Filtro de Precios
+    const [filterEbayPrice, setFilterEbayPrice] = useState({
+        min: "",
+        max: ""
+    });
+    /*     const [filterAmazonPrice, setFilterAmazonPrice] = useState({
+            min: "",
+            max: ""
+        }); */
+
     //Funcion que crea la lista random de cards
     const getRandomCardList = (numLimit = 40, datos = cards.data) => {
         let i = 0;
@@ -35,7 +45,7 @@ export default function Home() {
         setFilterList(cardList.slice(0, 20));
     }
 
-    const raceList = ["Aqua","Beast","Creator-God","Cyberse","Dinosaur","Divine-Beast","Dragon","Fairy","Fiend","Fish","Insect","Machine","Plant","Psychic","Pyro","Reptile","Rock","Sea Serpent","Spellcaster","Thunder","Warrior","Winged","Normal","Field","Equip","Continuous","Quick-Play","Ritual","Counter"]
+    const raceList = ["Aqua", "Beast", "Creator-God", "Cyberse", "Dinosaur", "Divine-Beast", "Dragon", "Fairy", "Fiend", "Fish", "Insect", "Machine", "Plant", "Psychic", "Pyro", "Reptile", "Rock", "Sea Serpent", "Spellcaster", "Thunder", "Warrior", "Winged", "Normal", "Field", "Equip", "Continuous", "Quick-Play", "Ritual", "Counter"]
 
     //Función para ordenar o filtrar las cards
     const handleChange = e => {
@@ -43,7 +53,7 @@ export default function Home() {
         console.log("value", e.target.value);
         let nuevaLista = [];
 
-        if(raceList.includes(e.target.value)){
+        if (raceList.includes(e.target.value)) {
             getSearchByRace(e.target.value)
         }
 
@@ -137,10 +147,10 @@ export default function Home() {
             elemento.name.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
             || elemento.race.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
         );
-        setCardListAPI(resultadosBusqueda.slice(0,40));
+        setCardListAPI(resultadosBusqueda.slice(0, 40));
         setFilterList(resultadosBusqueda.slice(0, 20));
     }
-    
+
     //Filtro por race
     const getSearchByRace = (terminoBusqueda) => {
         let resultadosBusqueda = cards.data.filter((elemento) =>
@@ -150,43 +160,83 @@ export default function Home() {
         //Hace un random de los resultados
         getRandomCardList(50, resultadosBusqueda);
     }
-    
-    //Component Did mount
-    useEffect(() => {
-        getRandomCardList();
-    }, [])
 
-    //Cambia el estado segun click boton moreCards en SideBar
-    const showMore = () => {
-        setShowMoreCards(!showMoreCards)
+    //Filtro por PRICE
+    const handleFilterPrice = (e) => {
+        setFilterEbayPrice({
+            ...filterEbayPrice,
+            [e.target.name]: e.target.value
+        })
+        console.log(e.target.value);
     }
 
-    //Hace el seguimiento al estado showMoreCards
-    useEffect(() => {
-        showMoreCards ? setFilterList(cardListAPI) : setFilterList(cardListAPI.slice(0, 20));
-    }, [showMoreCards, cardListAPI])
-
-    //Funcion para btn Change Cards de SideBar
-    const btnChangeCards = () =>{
-        setChangeCards(!changeCards)
+    const getFilterByEbayPrice = () => {
+        console.log(filterEbayPrice);
+        filterByEbayPrice();
     }
-    useEffect(() => {
-        changeCards ? getRandomCardList(40) : getRandomCardList();
-        setChangeCards(false);
-    }, [changeCards])
+
+    /* const getFilterByAmazonPrice = ()=>{
+        console.log(filterAmazonPrice);
+        filterByAmazonPrice();
+    } */
+
+    const filterByEbayPrice = () => {
+        let resultadosBusqueda = cards.data.filter((elemento) =>
+            (parseFloat(elemento.card_prices[0].ebay_price) > parseInt(filterEbayPrice.min) && parseFloat(elemento.card_prices[0].ebay_price) < parseInt(filterEbayPrice.max))
+        );
+        console.log(resultadosBusqueda);
+
+        setCardListAPI(resultadosBusqueda.slice(0, 40));
+        setFilterList(resultadosBusqueda.slice(0, 20));
+
+        //Hace un random de los resultados
+        /* getRandomCardList(50, resultadosBusqueda); */
+    }
+
+    /* const filterByAmazonPrice = () => {
+        let resultadosBusqueda = cards.data.filter((elemento) =>
+            parseFloat(elemento.card_prices[0].amazon_price) > parseInt(filterPrice.min) && parseFloat(elemento.card_prices[0].amazon_price) < parseInt(filterPrice.max)
+        );
+    //Hace un random de los resultados
+    getRandomCardList(50, resultadosBusqueda);
+    }*/
+
+//Component Did mount
+useEffect(() => {
+    getRandomCardList();
+}, [])
+
+//Cambia el estado segun click boton moreCards en SideBar
+const showMore = () => {
+    setShowMoreCards(!showMoreCards)
+}
+
+//Hace el seguimiento al estado showMoreCards
+useEffect(() => {
+    showMoreCards ? setFilterList(cardListAPI) : setFilterList(cardListAPI.slice(0, 20));
+}, [showMoreCards, cardListAPI])
+
+//Funcion para btn Change Cards de SideBar
+const btnChangeCards = () => {
+    setChangeCards(!changeCards)
+}
+useEffect(() => {
+    changeCards ? getRandomCardList(40) : getRandomCardList();
+    setChangeCards(false);
+}, [changeCards])
 
 
-    return (
-        <Container fluid className="cont-home">
-            <NavBar handleSearch={handleSearch} searchValue={searchValue} btnSearch={btnSearch} />
-            <Row>
-                <Col md={10}>
-                    <Section filterList={filterList} />
-                </Col>
-                <Col>
-                    <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} raceList={raceList}/>
-                </Col>               
-            </Row>
-        </Container>
-    );
+return (
+    <Container fluid className="cont-home">
+        <NavBar handleSearch={handleSearch} searchValue={searchValue} btnSearch={btnSearch} />
+        <Row>
+            <Col md={10}>
+                <Section filterList={filterList} />
+            </Col>
+            <Col>
+                <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} raceList={raceList} getFilterByEbayPrice={getFilterByEbayPrice} handleFilterPrice={handleFilterPrice} /* getFilterByAmazonPrice={getFilterByAmazonPrice} */ />
+            </Col>
+        </Row>
+    </Container>
+);
 }
