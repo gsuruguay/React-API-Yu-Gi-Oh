@@ -24,7 +24,7 @@ export default function Home() {
     const [searchValue, setSearchValue] = useState("");
 
     //Funcion que crea la lista random de cards
-    const getListCards = (numLimit = 40, datos = cards.data) => {
+    const getRandomCardList = (numLimit = 40, datos = cards.data) => {
         let i = 0;
         let cardList = [];
         while (i < numLimit) {
@@ -146,17 +146,14 @@ export default function Home() {
         let resultadosBusqueda = cards.data.filter((elemento) =>
             elemento.race.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
         );
-        //Muestra las mismas cartas siempre
-        /* setCardListAPI(resultadosBusqueda.slice(0,40));
-        setFilterList(resultadosBusqueda.slice(0, 20)); */
 
         //Hace un random de los resultados
-        getListCards(50, resultadosBusqueda);
+        getRandomCardList(50, resultadosBusqueda);
     }
     
     //Component Did mount
     useEffect(() => {
-        getListCards();
+        getRandomCardList();
     }, [])
 
     //Cambia el estado segun click boton moreCards en SideBar
@@ -174,7 +171,7 @@ export default function Home() {
         setChangeCards(!changeCards)
     }
     useEffect(() => {
-        changeCards ? getListCards(40) : getListCards();
+        changeCards ? getRandomCardList(40) : getRandomCardList();
         setChangeCards(false);
     }, [changeCards])
 
