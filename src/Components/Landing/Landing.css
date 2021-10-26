@@ -4,7 +4,15 @@
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    height: 100%;
+    height: 100vh;
+}
+.img-yugioh img{
+    width: 75%;
+    /* width: 430px; */
+}
+.img-titulo img{
+    width: 90%;
+    /* width: 520px; */
 }
 .my-bgb{
     background: #dcb84d !important;
@@ -16,10 +24,20 @@
     color: rgb(255, 255, 255)!important;
 }
 
-@media only screen and (max-width: 576px){
-    .cont-landing{       
-        height: 100vh;
+@media only screen and (max-width: 992px){
+    .img-yugioh img{
+        width: 340px;
     }
+    .img-titulo img{
+        width: 400px;
+    }
+}
+@media only screen and (max-width: 768px){
+    .img-titulo img{
+        width: 380px;
+    }
+}
+@media only screen and (max-width: 576px){
     .cont-landing img{       
         width: 280px;
     }

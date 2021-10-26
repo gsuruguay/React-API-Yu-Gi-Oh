@@ -13,7 +13,6 @@ function App() {
     <div>
       <Switch>
         <Route exact path="/">
-          <NavFijo />
           <Landing />
         </Route>
         <Route exact path="/home">
