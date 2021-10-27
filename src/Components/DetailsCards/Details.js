@@ -41,13 +41,13 @@ export default function Details(props) {
 						Type:</b> {wantedCard && wantedCard?.data[0].type}
 					</div>
 					<div> <b>
-						Level:</b> {wantedCard && wantedCard?.data[0].level}
+						Level:</b> {wantedCard?.data[0].level !== undefined ? wantedCard?.data[0].level : "-"}
 					</div>
 					<div> <b>
-						ATK:</b> {wantedCard && wantedCard?.data[0].atk}
+						ATK:</b> {wantedCard?.data[0].atk !== undefined ? wantedCard?.data[0].atk : "-"}
 					</div>
 					<div> <b>
-						DEF:</b> {wantedCard && wantedCard?.data[0].def}
+						DEF:</b> {wantedCard?.data[0].def !== undefined ? wantedCard?.data[0].def : "-"}
 					</div>
 					<div>
 						{wantedCard && wantedCard?.data[0].desc}
