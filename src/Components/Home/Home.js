@@ -233,7 +233,7 @@ return (
             <Col md={10}>
                 <Section filterList={filterList} />
             </Col>
-            <Col>
+            <Col xs={{ order: 'first' }}>
                 <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} raceList={raceList} getFilterByEbayPrice={getFilterByEbayPrice} handleFilterPrice={handleFilterPrice} /* getFilterByAmazonPrice={getFilterByAmazonPrice} */ />
             </Col>
         </Row>
