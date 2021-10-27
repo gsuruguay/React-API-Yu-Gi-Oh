@@ -28,7 +28,7 @@ export default function Home() {
         min: "",
         max: ""
     });
-    /*     const [filterAmazonPrice, setFilterAmazonPrice] = useState({
+    /*  const [filterAmazonPrice, setFilterAmazonPrice] = useState({
             min: "",
             max: ""
         }); */
@@ -49,8 +49,6 @@ export default function Home() {
 
     //Función para ordenar o filtrar las cards
     const handleChange = e => {
-        console.log("id", e.target.id);
-        console.log("value", e.target.value);
         let nuevaLista = [];
 
         if (raceList.includes(e.target.value)) {
@@ -161,38 +159,29 @@ export default function Home() {
         getRandomCardList(50, resultadosBusqueda);
     }
 
-    //Filtro por PRICE
+    //Filtro por Ebay Price
     const handleFilterPrice = (e) => {
         setFilterEbayPrice({
             ...filterEbayPrice,
             [e.target.name]: e.target.value
         })
-        console.log(e.target.value);
     }
 
     const getFilterByEbayPrice = () => {
-        console.log(filterEbayPrice);
         filterByEbayPrice();
-    }
-
-    /* const getFilterByAmazonPrice = ()=>{
-        console.log(filterAmazonPrice);
-        filterByAmazonPrice();
-    } */
+    }    
 
     const filterByEbayPrice = () => {
         let resultadosBusqueda = cards.data.filter((elemento) =>
             (parseFloat(elemento.card_prices[0].ebay_price) > parseInt(filterEbayPrice.min) && parseFloat(elemento.card_prices[0].ebay_price) < parseInt(filterEbayPrice.max))
         );
-        console.log(resultadosBusqueda);
-
         setCardListAPI(resultadosBusqueda.slice(0, 40));
         setFilterList(resultadosBusqueda.slice(0, 20));
-
-        //Hace un random de los resultados
-        /* getRandomCardList(50, resultadosBusqueda); */
     }
 
+    /* const getFilterByAmazonPrice = ()=>{
+        filterByAmazonPrice();
+    } */
     /* const filterByAmazonPrice = () => {
         let resultadosBusqueda = cards.data.filter((elemento) =>
             parseFloat(elemento.card_prices[0].amazon_price) > parseInt(filterPrice.min) && parseFloat(elemento.card_prices[0].amazon_price) < parseInt(filterPrice.max)
