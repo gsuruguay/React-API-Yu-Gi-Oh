@@ -33,8 +33,8 @@ export default function SideBar(props) {
                 <div className="mb-4">
                     <Form.Select aria-label="Default select example">
                         <option>Select...</option>
-                        {props.raceList.map(race =>
-                            <option value={race} >{race}</option>
+                        {props.raceList.map((race, index) =>
+                            <option key={index} value={race} >{race}</option>
                         )}
                     </Form.Select>
                 </div>
