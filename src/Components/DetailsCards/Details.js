@@ -7,18 +7,14 @@ import './Details.css';
 export default function Details(props) {
 	const params = useParams();
 	const url = `https://db.ygoprodeck.com/api/v7/cardinfo.php?id=${params.id}`
-	console.log(params);
 
 	const [wantedCard, setWantedCard] = useState(null);
 
 	useEffect(() => {
 		async function getCardParam() {
 			const resul = await axios.get(url);
-
 			const resulCards = resul.data;
-			console.log(resulCards);
 			setWantedCard(resulCards);
-			console.log(resulCards.data[0].name);
 		}
 		getCardParam();
 	}, [url])
