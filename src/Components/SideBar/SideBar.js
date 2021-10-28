@@ -12,14 +12,14 @@ export default function SideBar(props) {
                 :
                 <Button style={{ width: '100%' }} className="btn-sidebar" variant="outline-secondary" onClick={props.showMore}>Show more cards</Button>
             }
-            <Form className="mt-3">
+            {/* <Form className="mt-3">
                 <h5>Filter by Ebay Prices</h5>
                 <div >
-                <Form.Control name="min" className="mb-2" type="number" placeholder="Min" onChange={props.handleFilterPrice}/>
-                <Form.Control name="max" className="mb-2" type="number" placeholder="Max" onChange={props.handleFilterPrice}/>
+                <Form.Control name="min" className="mb-2" type="number" step="0.01" min="0" max="10000" placeholder="Min" onChange={props.handleFilterPrice}/>
+                <Form.Control name="max" className="mb-2" type="number" step="0.01" min="0" max="10000" placeholder="Max" onChange={props.handleFilterPrice}/>
                 <Button style={{ width: '100%' }} className="btn-sidebar" variant="outline-success" onClick={props.getFilterByEbayPrice}>Filter by Price</Button>
                 </div>
-            </Form>
+            </Form> */}
             {/* <Form className="mt-3">
                 <h5>Filter by Amazon Prices</h5>
                 <div >

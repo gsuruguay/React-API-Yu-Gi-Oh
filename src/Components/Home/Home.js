@@ -24,10 +24,10 @@ export default function Home() {
     const [searchValue, setSearchValue] = useState("");
 
     //Filtro de Precios
-    const [filterEbayPrice, setFilterEbayPrice] = useState({
+    /* const [filterEbayPrice, setFilterEbayPrice] = useState({
         min: "",
         max: ""
-    });
+    }); */
     /*  const [filterAmazonPrice, setFilterAmazonPrice] = useState({
             min: "",
             max: ""
@@ -160,24 +160,24 @@ export default function Home() {
     }
 
     //Filtro por Ebay Price
-    const handleFilterPrice = (e) => {
+    /* const handleFilterPrice = (e) => {
         setFilterEbayPrice({
             ...filterEbayPrice,
             [e.target.name]: e.target.value
         })
-    }
+    } */
 
-    const getFilterByEbayPrice = () => {
+    /* const getFilterByEbayPrice = () => {
         filterByEbayPrice();
-    }    
+    }    */ 
 
-    const filterByEbayPrice = () => {
+    /* const filterByEbayPrice = () => {
         let resultadosBusqueda = cards.data.filter((elemento) =>
-            (parseFloat(elemento.card_prices[0].ebay_price) > parseInt(filterEbayPrice.min) && parseFloat(elemento.card_prices[0].ebay_price) < parseInt(filterEbayPrice.max))
+            (parseFloat(elemento.card_prices[0].ebay_price) > parseFloat(filterEbayPrice.min) && parseFloat(elemento.card_prices[0].ebay_price) < parseFloat(filterEbayPrice.max))
         );
         setCardListAPI(resultadosBusqueda.slice(0, 40));
         setFilterList(resultadosBusqueda.slice(0, 20));
-    }
+    } */
 
     /* const getFilterByAmazonPrice = ()=>{
         filterByAmazonPrice();
@@ -223,7 +223,7 @@ return (
                 <Section filterList={filterList} />
             </Col>
             <Col xs={{ order: 'first' }}>
-                <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} raceList={raceList} getFilterByEbayPrice={getFilterByEbayPrice} handleFilterPrice={handleFilterPrice} /* getFilterByAmazonPrice={getFilterByAmazonPrice} */ />
+                <SideBar handleChange={handleChange} showMore={showMore} showMoreCards={showMoreCards} btnChangeCards={btnChangeCards} raceList={raceList} /* getFilterByEbayPrice={getFilterByEbayPrice} handleFilterPrice={handleFilterPrice}  *//* getFilterByAmazonPrice={getFilterByAmazonPrice} */ />
             </Col>
         </Row>
     </Container>
