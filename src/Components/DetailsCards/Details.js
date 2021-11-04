@@ -28,7 +28,7 @@ export default function Details(props) {
 		<Container fluid className="cont-detail">
 			<Row className="mt-5 pt-5 ">
 				<Col md={6} className="cont-image-detail text-center">
-					<Image src={wantedCard && wantedCard?.data[0].card_images[0].image_url} alt="Yu-Gi-Oh" />
+					<Image className="d-block mx-auto" src={wantedCard && wantedCard?.data[0].card_images[0].image_url} alt="Yu-Gi-Oh" />
 					<Button size="lg" className="my-bgb" onClick={btnReturnHome}>Back home</Button>
 				</Col>
 				<Col className="cont-info-detail" md={4}>
