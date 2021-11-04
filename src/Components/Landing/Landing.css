@@ -18,6 +18,7 @@
     background: #dcb84d !important;
     color: rgb(70, 3, 3)!important;
     font-weight: bolder!important;
+    margin: 2rem 0;
 }
 .my-bgb:hover{
     background: #7c6b38 !important;

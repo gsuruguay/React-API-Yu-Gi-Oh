@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { useParams, useHistory } from 'react-router';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import './Details.css';
 
 export default function Details(props) {
@@ -19,16 +19,17 @@ export default function Details(props) {
 		getCardParam();
 	}, [url])
 
-	/* Funcion filtra sobre json de datos 
-	const selected = cards.find((element) => element.id === parseInt(params.id));
-	console.log(selected);
- */
+	const history = useHistory();
+	const btnReturnHome = () => {
+		history.push("/home")
+	}
 
 	return (
 		<Container fluid className="cont-detail">
 			<Row className="mt-5 pt-5 ">
 				<Col md={6} className="cont-image-detail text-center">
 					<Image src={wantedCard && wantedCard?.data[0].card_images[0].image_url} alt="Yu-Gi-Oh" />
+					<Button size="lg" className="my-bgb" onClick={btnReturnHome}>Back home</Button>
 				</Col>
 				<Col className="cont-info-detail" md={4}>
 					<div> <b>
@@ -52,10 +53,10 @@ export default function Details(props) {
 					<div>
 						{wantedCard && wantedCard?.data[0].desc}
 					</div>
-					{/* <div><b>
+					<div><b>
 						Amazon Price: </b>
 						${wantedCard && wantedCard?.data[0].card_prices[0].amazon_price}
-					</div> */}
+					</div>
 					<div><b>
 						Ebay Price: </b>
 						${wantedCard && wantedCard?.data[0].card_prices[0].ebay_price}
