@@ -7,7 +7,7 @@
 ## Secciones
 ### Landing
 
-* Muestra una imagen representativa del los datos obtenidos en la API. 
+* Muestra una imagen representativa de los datos obtenidos en la API. 
 * Contiene dos botones para redirigir hacia Home y About.
 
 ![Imagen del Landing](https://i.postimg.cc/Kj9J7Ffm/landing.jpg)
@@ -64,7 +64,7 @@
 * Ejecutar en consola desde la carpte de Client **npm start**
 
 ## Autores
-**Guillermo Suruguay**
+**Guillermo Suruguay** / 
 **Lourdes Alvarez**
 
 [Escríbeme en Linkedin](https://www.linkedin.com/in/guillermo-suruguay-desarrollador-web)
